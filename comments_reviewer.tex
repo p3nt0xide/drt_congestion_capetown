@@ -1,0 +1,102 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+%\usepackage{fontspec}
+\usepackage[english, bidi=basic, provide=*]{babel}
+%\babelfont{rm}{Noto Sans}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    urlcolor=blue!50!black
+}
+
+\begin{document}
+
+\title{\textbf{Reviewer Feedback and Manuscript Notes}}
+\author{Compilation \& Structuring}
+\date{\today}
+\maketitle
+
+
+---
+
+\section{Reviewer Feedback (Detailed Response Basis)}
+
+\begin{enumerate}
+    \item This study uses a simulation model to investigate the DRT system in Cape Town, specifically for the consideration of reducing city congestion. The topic is interesting; however, there are several concerns preventing acceptance for publication.
+    \item First, given that the focus of this study is a simulation approach for large-scale analysis, the introduction and literature review should intentionally focus on pointing out the weaknesses of existing simulation approaches. This was not sufficiently observed in the study, contributing to an unclear contribution. The authors are recommended to provide more insights into simulation models and highlight their advantages (if any).
+    \item Second, although the authors mention the interesting phenomenon of public transport cannibalization and their aim to develop an agent-based model to address the issue at a large scale, the efforts in showing how the model was built respectfully for this purpose were not appropriately presented. The authors are required to first theoretically describe the phenomenon and then detail the model structures fitted to simulate it.
+    \item Third, the way the authors deal with congestion and public transport cannibalization should be carefully elaborated. This goes beyond a simple mode choice study with a given universal choice set. Communication methods—one of the emerging characteristics of DRT—should be well discussed in this context.
+    \item Finally, data collection and treatment should be better provided to mitigate biases typically present in large-scale studies.
+\end{enumerate}
+
+\section{Timo}
+
+\subsection{Reviewer Comments \& Summary}
+\begin{enumerate}
+    \item \textbf{Literature Context:} Improve classification of the study in the wider literature context. Emphasize that this simulation (and simulations in general) are valuable contributions to resolving current issues.
+    \item \textbf{Mode Cannibalization:} Elaborate more on mode cannibalization (appears to be a key concern for the referee).
+    \item \textbf{Congestion \& Cannibalization Interplay:} Elaborate on congestion, the phenomenon of public transport cannibalization, and how these two phenomena are intertwined.
+    \item \textbf{Reduce Study Biases:} Use more current / overlapping data. Try to ``update'' the whole study.
+\end{enumerate}
+
+\noindent\textbf{Summary Assessment:} Points 1 and 4 are important but doable; points 2 and 3 are important and easier to implement. These points appear to be specific priorities of this particular referee.
+
+---
+
+\subsection{Title, Abstract, and General Structure}
+
+\begin{itemize}
+    \item \textbf{Title:} Remove the word ``overburdened''.
+    \item \textbf{Abstract --- Company Names:} Reconsider ``like Uber and Bolt\dots'' Is it common practice to name specific companies in this context?
+    \item \textbf{Abstract --- Transferability Claims:} Statements like ``\dots facilitating direct transferability to other regions worldwide'' are dangerous. Remove or attenuate them. Similarly, reformulate sentences regarding policy recommendations and transferable frameworks for global metropolises more carefully.
+    \item \textbf{General Tone:} Focus more on the strengths of the study results and structure the abstract more logically.
+\end{itemize}
+
+---
+
+\subcaption[]{}section{Figure-Specific Feedback}
+
+\begin{itemize}
+    \item \textbf{Fig. 1:} Elaborate a bit more. What do we actually see? The CBD (Central Business District) is not explained.
+    \item \textbf{Fig. 2:} Recreate the figure using the mean of all counting stations, and include standard deviation as error bars for each hourly bar.
+    \item \textbf{Fig. 3:} Address why outer regions are unattractive for DRT (due to distance / pricing?). Also, mark the airport clearly.
+    \item \textbf{Fig. 4:} Clarify if this represents congestion delay per person or per ride. Note heavy congestion around the airport (?), but check why there are not as many car trip origins compared to Fig. 3.
+    \item \textbf{Figs. 5 \& 7:} Clarify the y-axis: change in what metric?
+    \item \textbf{Fig. 7:} Why does car mileage go back up between 1.0 and 1.5?
+    \item \textbf{Fig. 9:} Explain what happens here. Is the effect visible only from the 3rd to 4th column?
+    \item \textbf{Fig. 10:} Explain why there is a dramatic increase in congestion at certain specific spots.
+    \item \textbf{Fig. 11:} Needs visual improvement (``looks a bit ugly ;)``).
+\end{itemize}
+
+---
+
+\section{New Data Sources}
+
+\begin{itemize}
+    \item \textbf{Traffic count data 2025:} 
+    \url{https://tms.westerncape.gov.za/public/maps}
+    \item \textbf{Household Survey 2024:} 
+    \url{https://odp-cctegis.opendata.arcgis.com/datasets/cctegis::2024-household-survey/explore} \\
+    \url{https://household-survey.capetown.gov.za/\#}
+    \item \textbf{Population estimates 2025:} 
+    \url{https://odp-cctegis.opendata.arcgis.com/search?collection=dataset&layout=grid}
+    \item https://odp-cctegis.opendata.arcgis.com/datasets/tct-road-centerline/explore?location=-33.998808%2C18.511347%2C13&showTable=true 
+\end{itemize}
+
+\subsection{Thoughts}
+
+\begin{itemize}
+    \item Start counter-factual runs where we do not limit ourselves on \begin{itemize}
+        \item a service area
+        \item high DRT pricing 
+    \end{itemize}
+    
+\end{itemize}
+
+
+\end{document}

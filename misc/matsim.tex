@@ -1,0 +1,80 @@
+Hager ODD (2015):
+
+Overview:
+The purpose of our model focuses on the alteration of the urban mobility system when newly-built residential or
+industrial areas or rehabilitated areas are connected to the transport system. We expect it to be a beneficial tool for
+researchers and urban designers to forecast mobility demands for urban areas.
+Two types of entities exist in our model: the travelers in the city of Stuttgart (e.g. inhabitants or commuters) and
+vehicles. Socio-demographic variables characterize the travelers, whereas frequency and capacity define the vehi-
+cles. Exogenous factors for the entities are urban structure, ground plans, location of public transport stops as well as
+their sizing. The City of Stuttgart is the model’s spatial extent, the temporal resolution accounts for one day with
+time steps of one second. Travelers will utilize the existing circulation areas.
+Every traveler pursues his personal activity chain (Fig. 1) and chooses between the existing traffic modes to trav-
+el on the existing circulation areas. Public transport uses time schedules on their respective areas.
+Design Concepts:
+The theoretical background consists of urban morphology and population growth and their respective effects on
+the urban mobility system. Agents choose their daily activity chain based on a utility function which is implemented
+in MATSim (Balmer et al. 2009)
+Individual decision-making consists of route, time, location and mode choice. The decision-making basis is the
+utility function, afterwards the agents move based on a traffic flow simulation (Flötteröd et al. 2011). Agents com-
+pete with each other for space-time-slots on the circulation areas to pursue their daily activity chain, either utilizing
+empirical data or discrete-choice modelling (Horni et al. 2015). Agents observe each other and the environment.
+Activity plans with the highest score in the utility function are chosen (Nagel et al. 2015).
+Agents react to traffic situations and choose to drop certain activities in their daily plan after recognizing they
+will be too late at the location of their next activity (replanning). Agents utilize their newly-acquired knowledge for
+future activity plans.
+The individual sensing of agents consists of the grasp and utilization of each traffic mode. Agents know the loca-
+tion of stopping points and their travel choices affect the movement of other agents. When agents choose to alter
+their activity chain, it might guide to worse results (time and/or length) than before. The traffic model is based on
+the first-in-first-out-principle (Flötteröd et al. 2011).
+As soon as agents predict are not able to stick with their chosen plans, they search for alternatives. In that case,
+plans with the next highest score will be used (Nagel et al. 2015). The results of this process may be erroneous.
+Agents perceive their environment in different ways. Interaction between agents and additional information (traf-
+fic news) is possible (Dobler 2009).
+Trains, busses and cars with several passengers are collectives. Agents are heterogeneous based on socio-
+demographic data and their daily activity chain. The utility function consists of several variables, who differ be-
+tween agents, thus leading to heterogeneous decision-making.
+Initialization of the agents and the assignment of the daily activity chain is partly random.
+The observation of the model’s results conduct to several different possible analyses: variances in the modal split
+of the research area, congestion effects, distribution of traffic flows. Scenario-analysis are the calculation method for
+this model.
+Details:
+The goal is to set up an agent-based model using MATSim for the city of Stuttgart. The initialization utilizes the
+current modal split values of the city of Stuttgart and endures one day. The model’s input data is listed in Table 1.
+The modular structure of MATSim permits the utilization of additional modules. The following modules will be
+included in our agent-based model: within-day replanning, public transport, multi-modal contribution, parking,
+signals and lanes, cadyts and matrix-based pt router (Horni and Nagel 2015).
+In summary, the functionalities of the existing MATSim version cover most of the required features for this
+study. Fig. 1 represents the proposed research design and its anticipated fields of impact. Following this, we present-
+ed a concept for agent-based models. Before finally setting up the model, demographic data need to be utilized to
+validate the hypothesis of this study that the City of Stuttgart experienced a significant amount of population growth
+during the last years. First results regarding the demographic status of the City of Stuttgart are presented.
+
+
+The basis of an agent-based MATSim simulation is a synthetic population of the case study area. For Switzerland, a range of rich
+data sources are available that make it possible to set up such a population with detailed socio-demographic and behavioral attributes.
+In the following, the process will be described in brief. A more detailed description of the Swiss data sets and how they have been
+processed can be found in (H¨orl, 2020). Furthermore, (H¨orl and Balac, 2020) describes the methodology in detail for the case of Paris
+and ˆIle-de-France. There, unlike Switzerland, all necessary data sets are publicly and openly available to replicate the process.
+Initially, the synthetic Swiss population is based on the STATPOP data set, which is a comprehensive census of Switzerland,
+including attributes like age and gender of all residents, but - most notably - also location by coordinate of each household. Persons and
+households from this data set are used directly as a basis of the Swiss synthetic population. Afterward, work or educational locations for
+each synthetic person are added. For that, the Structural Survey is used, which, unlike the registration-based census data, is a detailed
+household survey conducted for around 3% of the Swiss population each year. From this data set, an origin–destination matrix between
+home and work/education municipalities in Switzerland can be derived, then used to proportionately sample destination zones for
+each agent, based on their home zone. In the third step, the national Mobility and Transport Microcensus is employed: a classical
+household travel survey providing full day activity patterns for around 60,000 respondents. We use a statistical matching procedure to
+sample and attach activity chains to the synthetic persons, based on socio-demographic attributes. This way, activity patterns
+correlating with certain age groups or gender are assigned according to the population. These activity chains contain activity types,
+activity durations and connecting modes of transport as reported in the survey data. As departure and arrival times are rounded
+strongly (in five minute intervals) as is the case in many surveys, activity chains (including all departure and arrival times) are shifted
+by a random offset of +/�� 30 min for each person to avoid having unrealistically many people departing at the same time at one
+location, which would, in turn, affect the traffic dynamics in the simulation negatively. Finally, specific work and education locations
+are sampled, based on the destination zones of the agents, from STATENT, the national enterprise census, which lists all facilities in
+Switzerland by coordinate. Further, secondary activities in the agents’ plans (such as shopping or leisure), are assigned to discrete
+facilities using a specifically-designed algorithm for secondary location assignment (H¨orl and Axhausen, 2020). To complete the
+simulation data, an exhaustive digital public transit schedule for Switzerland is integrated into the simulation and the road network is
+extracted from OpenStreetMap, including all roads from motorways to residential roads. In total, this process yields a synthetic
+representation of Switzerland that reproduces the daily mobility needs of the population and available infrastructure.
+
+
