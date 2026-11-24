@@ -40,6 +40,7 @@
 %% Useful packages
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -116,17 +117,16 @@
 \hypertarget{todo-overview}{}{\large\bfseries Overview of Remaining Manuscript TODOs}\hfill{\scriptsize\textit{Toggle via \texttt{\textbackslash showtodooverviewfalse}}}\\[3pt]
 \hrule
 \vspace{4pt}
-\noindent\textbf{Summary (39 open items):}\quad
+\noindent\textbf{Summary (38 open items):}\quad
 \badgeRev\ 1 \quad|\quad
-\badgeTimo\ 18 \quad|\quad
-\badgeLeif\ 16 \quad|\quad
-\badgeAlex\ 4 \quad
+\badgeTimo\ 17 \quad|\quad
+\badgeLeif\ 15 \quad|\quad
+\badgeAlex\ 5 \quad
 {\scriptsize\textit{(Click any blue title to jump to the note in the text.)}}
 
 \vspace{4pt}
-\noindent\textbf{1. Title, Abstract \& Highlights (6)}
+\noindent\textbf{1. Title, Abstract \& Highlights (5)}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
-  \item[$\square$] \badgeTimo\ \hyperlink{todo:title-overburdened}{\textbf{Title:}} Remove the word ``overburdened'' from the paper title.
   \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-tone}{\textbf{Abstract (General Tone):}} Focus more on the strengths of the study results and structure the abstract more logically.
   \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-companies}{\textbf{Abstract (Company Names):}} Reconsider naming ``Uber and Bolt'' (check whether naming specific companies is standard practice).
   \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-transfer1}{\textbf{Abstract (Transferability):}} Remove or attenuate ``facilitating direct transferability to other regions worldwide''.
@@ -138,8 +138,8 @@
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
   \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-overall}{\textbf{Overall:}} Valid points, but not specific and clear enough regarding the research gap and paper contributions.
   \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-source}{\textbf{Citation:}} Add a source for the claim that the Global South exhibits the highest urbanization rates globally.
-  \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-rephrase}{\textbf{Wording:}} Rephrase ``The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.''
   \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-drt-setup}{\textbf{DRT Definition:}} Qualify the statement that DRT is not bound to fixed routes/schedules (depends on the service setup).
+  \item[$\square$] \badgeAlex\ \hyperlink{todo:intro-drt-setup-alex}{\textbf{DRT Definition (Follow-up):}} Discuss with Leif.
   \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-gap}{\textbf{Contribution Paragraph:}} Make the closing framing paragraph (``Against this backdrop\dots'') more precise: explicitly state the research gap, value-added, and exact methodology.
 \end{itemize}
 
@@ -335,9 +335,7 @@ Traffic congestion has high opportunity costs, including increased transaction c
 These high congestion levels, in turn, increase emissions and other negative externalities, such as reduced social well-being and worsened socioeconomic inequality \citep{Wang2019-ge}.
 Also, they are negatively affecting many sectors of these developing economies through distorted freight supply chains \citep{jabbarpour2018applications, miskolczi2021urban} and can spill over beyond individuals to city-wide stagnation and thus hinder national development.
 As such, the issue of congestion has a high priority on the political agenda in theses cities \citep{costa2017urban, miskolczi2021urban, perveen2017evaluating}.
-\absatz
-The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.\hypertarget{todo:intro-rephrase}{}\aitodo{Rephrase or add to previous sentence and may also rephrase this one}
-The city consistently ranks among the most congested metropolitan areas globally.
+These challenges are particularly pronounced in rapidly growing African metropolises such as Cape Town, South Africa, which consistently ranks among the most congested cities worldwide.
 According to the 2023 INRIX Global Traffic Scorecard, Cape Town ranked 9th globally out of 100 urban areas, with drivers losing an average of 83 extra hours in traffic annually \citep{inrix2023scorecard}.
 \absatz
 Solutions to reduce congestion are varied, and require systems thinking to mitigate congestion, whilst maintaining equitable levels of accessibility for all.
@@ -345,7 +343,7 @@ One potentially useful transport system innovation that can help developing citi
 DRT is typically seen as a helpful addition to developed country transport systems \citep{Ben-dor, engelhardt2019quantifying, schluter2021impact, Kaddoura.2020,maggi2021price, miskolczi2021urban, zwick2021ride, article}.
 The rationale behind the effect of DRT on congestion alleviation is its ability to increase the average occupancy rate of vehicles by dynamically consolidating multiple individual trips into fewer shared vehicle journeys.
 This mechanism directly reduces the vehicle miles traveled (VMT) compared to unshared private car trips or conventional ride-hailing services, especially during peak hours.
-Unlike traditional public transport, a DRT operation is not bound to fixed routes or predetermined schedules.\hypertarget{todo:intro-drt-setup}{}\leif{It depends on the service setup.}\alex{Discuss with Leif}
+Unlike traditional public transport, a DRT operation is not bound to fixed routes or predetermined schedules.\hypertarget{todo:intro-drt-setup}{}\leif{It depends on the service setup.}\hypertarget{todo:intro-drt-setup-alex}{}\alex{Discuss with Leif}
 Instead, its core characteristics revolve around flexibility and efficiency \citep{ronald2015simulating}.
 This efficiency stems from dynamic routing and scheduling, where vehicles do not operate over a fixed route or on a fixed schedule, allowing the service to adapt in real-time to demand.
 Furthermore, DRT utilizes shared journeys, typically involving dispatching a single vehicle to pick up multiple passengers at different points and transporting them to various destinations, often interrupting the route to accommodate new requests.
@@ -406,7 +404,7 @@ The problem of congestion will likely persist even with these interventions, and
 DRT systems could be a helpful addition to bridge the time and cost gap between public and private transport options in Cape Town, a space where shared mobility options are suitable.
 The basic idea of DRT is that of transport provided flexibly in response to user demand signals.
 \citealp{butler2020smart} defines DRT as being able to change routes and or schedule depending on demand.
-DRT has been classified into several forms, and it overlaps with the categories of paratransit and shared mobility \citep{butler2020smart}.\hypertarget{todo:lit-viz}{}\leif{Could also be supported by a visualization.}\aitodo{make a suggestion for visualization and place a placeholder figure or a real figure according to todonotes package}
+DRT has been classified into several forms, and it overlaps with the categories of paratransit and shared mobility \citep{butler2020smart} (Figure~\ref{fig:drt_classification}).\hypertarget{todo:lit-viz}{}\leif{Could also be supported by a visualization.}
 The key to sharing is a higher utilization of goods by replacing permanent individual ownership with temporary on-demand access \citep{botsman2010s}.
 Whether it is classified together with sharing or not, the main idea is that DRT vehicles service many more users than a private car would \citep{munzel2018carsharing, butler2020smart}.
 It can either be area-based or line-based, with door-to-door stops \citep{vansteenwegen2022survey} or set stop points when it is stop-based.
@@ -414,6 +412,27 @@ It can be ad-hoc, similar to existing minibus taxis, or centrally coordinated, s
 In this paper, DRT refers to some real-time centrally coordinated DRT using app-based technology, as such technology is well suited for dynamic requests and routing \citep{zwick2021ride}.
 As DRT is known to specifically work in mixed land-use scenarios, it would make sense to first investigate the more affluent areas of Cape Town for DRT viability \citep{yu2019exploring}.
 Design of DRT could be incorporated or complement future transit system redesign in Cape Town \citep{byala2021redesigning}.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[font=\small]
+  \def\vennr{2.1cm}
+  \fill[blue!15, opacity=0.6]   (90:1.3cm)  circle (\vennr);
+  \fill[orange!25, opacity=0.6] (210:1.3cm) circle (\vennr);
+  \fill[green!20, opacity=0.6]  (330:1.3cm) circle (\vennr);
+  \draw[blue!60]   (90:1.3cm)  circle (\vennr);
+  \draw[orange!70] (210:1.3cm) circle (\vennr);
+  \draw[green!50!black] (330:1.3cm) circle (\vennr);
+  \node[align=center] at (90:2.6cm)  {\textbf{Public transport}\\[-1pt]\footnotesize bus, rail, BRT};
+  \node[align=center] at (210:2.6cm) {\textbf{Paratransit}\\[-1pt]\footnotesize minibus taxis};
+  \node[align=center] at (330:2.6cm) {\textbf{Shared mobility}\\[-1pt]\footnotesize car sharing,\\[-1pt]\footnotesize ride-hailing};
+  \node[draw, fill=white, rounded corners, align=center, inner sep=3pt] at (0,0) {\textbf{DRT}\\[-1pt]\footnotesize e.g.\ MOIA};
+\end{tikzpicture}
+\captionsetup{width=.9\textwidth}
+\caption{TO BE REPLACED, PLACEHOLDER: Conceptual positioning of DRT at the intersection of public transport, paratransit, and shared mobility (based on \citealp{butler2020smart}).}
+\label{fig:drt_classification}
+\end{figure}
+
 \absatz
 The general need to improve transport in cities has been termed ‘smart urban mobility’\citep{butler2020smart} and is not limited to Cape Town.
 A literature review on urban mobility scenarios by \citealp{miskolczi2021urban} found that the most likely outcome is a slow shift to emerging technologies of ride sharing, electric and self-driving vehicles by 2030.
