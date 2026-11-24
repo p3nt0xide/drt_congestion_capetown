@@ -55,6 +55,17 @@
 \newcommand{\aitodo}[1]{\todo[inline, color=red!40]{\textbf{AI TODO:} #1}}
 \newcommand{\RevieweroneRTBM}[1]{\todo[inline, color=green!40]{\textbf{Revier1RTBM:} #1}}
 \newcommand{\alex}[1]{\todo[inline, color=blue!40]{\textbf{Alex:} #1}}
+
+%% Toggle for the structured TODO overview page before the manuscript
+%% Set to \showtodooverviewfalse before submission to hide the overview page
+\newif\ifshowtodooverview
+\showtodooverviewtrue
+
+\newcommand{\todobadge}[2]{\colorbox{#1}{\textbf{\scriptsize #2}}}
+\newcommand{\badgeTimo}{\todobadge{orange!30}{Timo}}
+\newcommand{\badgeLeif}{\todobadge{yellow!40}{Leif}}
+\newcommand{\badgeAlex}{\todobadge{blue!25}{Alex}}
+\newcommand{\badgeRev}{\todobadge{green!35}{Reviewer 1}}
 %% ============================================================================
 %% ABSATZ- & ZEILENUMBRUCH-STEUERUNG (One-Sentence-Per-Line für SyncTeX)
 %% ============================================================================
@@ -86,6 +97,91 @@
 \journal{The Journal of Transport Geography}
 
 \begin{document}
+
+%% ============================================================================
+%% OVERVIEW OF REMAINING TODOS (Toggle via \showtodooverviewtrue / false)
+%% ============================================================================
+\ifshowtodooverview
+\begingroup
+\pagestyle{empty}
+\footnotesize
+\setlength{\parskip}{2pt}
+
+{\large\bfseries Overview of Remaining Manuscript TODOs}\hfill{\scriptsize\textit{Toggle via \texttt{\textbackslash showtodooverviewfalse}}}\\[3pt]
+\hrule
+\vspace{4pt}
+\noindent\textbf{Summary (40 open items):}\quad
+\badgeRev\ 1 \quad|\quad
+\badgeTimo\ 18 \quad|\quad
+\badgeLeif\ 17 \quad|\quad
+\badgeAlex\ 4 \quad
+{\scriptsize\textit{(Inline notes toggled via \texttt{todonotes} package; paper starts on next page.)}}
+
+\vspace{4pt}
+\noindent\textbf{1. Title, Abstract \& Highlights (6)}
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+  \item[$\square$] \badgeTimo\ \textbf{Title:} Remove the word ``overburdened'' from the paper title.
+  \item[$\square$] \badgeTimo\ \textbf{Abstract (General Tone):} Focus more on the strengths of the study results and structure the abstract more logically.
+  \item[$\square$] \badgeTimo\ \textbf{Abstract (Company Names):} Reconsider naming ``Uber and Bolt'' (check whether naming specific companies is standard practice).
+  \item[$\square$] \badgeTimo\ \textbf{Abstract (Transferability):} Remove or attenuate ``facilitating direct transferability to other regions worldwide''.
+  \item[$\square$] \badgeTimo\ \textbf{Abstract (Transferability):} Reformulate policy recommendations and transferable framework claims for global metropolises more carefully.
+  \item[$\square$] \badgeRev\ \textbf{Core Reviewer 1 Concerns:} (1)~Point out weaknesses of existing simulation approaches in Intro/Lit Review and highlight advantages of simulation models; (2)~Theoretically describe PT cannibalization and show how the ABM structure fits to simulate it; (3)~Elaborate on congestion and PT cannibalization beyond a simple mode choice set, including communication methods as an emerging DRT characteristic; (4)~Provide better details on data collection and treatment to mitigate large-scale study biases.
+\end{itemize}
+
+\noindent\textbf{2. Introduction (5)}
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+  \item[$\square$] \badgeLeif\ \textbf{Overall:} Valid points, but not specific and clear enough regarding the research gap and paper contributions.
+  \item[$\square$] \badgeLeif\ \textbf{Citation:} Add a source for the claim that the Global South exhibits the highest urbanization rates globally.
+  \item[$\square$] \badgeLeif\ \textbf{Wording:} Rephrase ``The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.''
+  \item[$\square$] \badgeLeif\ \textbf{DRT Definition:} Qualify the statement that DRT is not bound to fixed routes/schedules (depends on the service setup).
+  \item[$\square$] \badgeLeif\ \textbf{Contribution Paragraph:} Make the closing framing paragraph (``Against this backdrop\dots'') more precise: explicitly state the research gap, value-added, and exact methodology.
+\end{itemize}
+
+\noindent\textbf{3. Literature Review (14)}
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+  \item[$\square$] \badgeAlex\ \textbf{Section Structure:} Split into subsections: (1)~Situation in Cape Town, (2)~Concept of congestion (causes \& measurement), (3)~DRT as promising alternative or curse due to PT cannibalization.
+  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 1 (Literature Context):} Improve classification in the wider literature; emphasize that simulations are valuable contributions to resolving current issues.
+  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 2 (Mode Cannibalization):} Elaborate more on mode cannibalization (key concern for the referee).
+  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 3 (Congestion \& Cannibalization):} Elaborate on congestion, PT cannibalization, and how both phenomena are intertwined.
+  \item[$\square$] \badgeLeif\ \textbf{Urban Sprawl:} Include more diverse reasons for peripheral living beyond apartheid spatial planning alone.
+  \item[$\square$] \badgeLeif\ \textbf{Direct Quote:} Add page number to the TDCIP reference for the direct quote on public transport challenges.
+  \item[$\square$] \badgeLeif\ \textbf{Units \& Currencies:} Unify spacing around currencies and units (e.g., USD 160\,m vs.\ 192 m Rand vs.\ USD 11m vs.\ USD362\,m).
+  \item[$\square$] \badgeLeif\ \textbf{Accessibility Paragraph:} Avoid mere enumeration of Cape Town transport findings; cover fewer concepts and explain them in greater depth.
+  \item[$\square$] \badgeLeif\ \textbf{Wording:} Rephrase ``The problem of congestion will likely persist\dots'' so it does not sound as if DRT contributes to persistent congestion.
+  \item[$\square$] \badgeLeif\ \textbf{DRT Classification:} Consider supporting the classification / overlap of DRT, paratransit, and shared mobility with a visualization.
+  \item[$\square$] \badgeLeif\ \textbf{Clarity / Repetition:} Clarify ad-hoc vs.\ centrally coordinated DRT (e.g., MOIA) earlier and reduce repetition.
+  \item[$\square$] \badgeAlex\ \textbf{Cannibalization Framework:} Explain the theoretical framework of DRT--transit integration vs.\ cannibalization at its first mention.
+  \item[$\square$] \badgeLeif\ \textbf{Research Gap:} Strengthen the concluding statement (``This study attempts to fill this research gap.'').
+  \item[$\square$] \badgeLeif\ \textbf{Simulation Literature:} Add a dedicated subsection critically reflecting on existing agent-based modeling and DRT simulation papers.
+\end{itemize}
+
+\noindent\textbf{4. Method (10)}
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+  \item[$\square$] \badgeLeif\ \textbf{Theoretical Concepts:} Consider adding a dedicated section explaining transport economics/science concepts such as cannibalization (per Reviewer 1, Comment~2).
+  \item[$\square$] \badgeAlex\ \textbf{Intermodal Trips:} Clarify in the model description whether agents can or cannot perform intermodal trips (different mode legs within one trip).
+  \item[$\square$] \badgeAlex\ \textbf{DRT Mechanism:} Consider a new subsection explaining the MATSim-internal DRT dispatch/routing mechanism.
+  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 4 (Reduce Study Biases):} Use more current / overlapping data and consider updating the study inputs.
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~1:} Elaborate more on what is shown and explicitly explain CBD (Central Business District).
+  \item[$\square$] \badgeLeif\ \textbf{Fig.~1:} Make the traffic count station points more visible.
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~2:} Recreate using the mean across all counting stations with standard deviation error bars for each hourly bar.
+  \item[$\square$] \badgeLeif\ \textbf{Fig.~2:} Provide more detail (averages? weekdays?) and consider an ``accuracy'' figure instead of only a bar plot.
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~3:} Address why outer regions are unattractive for DRT (distance / pricing?) and mark the airport clearly.
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~4:} Clarify whether congestion delay is per person or per ride; explain heavy congestion near the airport despite fewer car trip origins in Fig.~3.
+\end{itemize}
+
+\noindent\textbf{5. Results (5)}
+\begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~5 (and Fig.~7):} Clarify the y-axis (change in what metric?).
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~7 (and Fig.~5):} Clarify the y-axis and explain why car mileage goes back up between fleet sizes 1.0 and 1.5.
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~9:} Explain what happens in the occupancy profiles (is the effect visible only from the 3rd to 4th column?).
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~10:} Explain why there is a dramatic increase in congestion at certain specific spots.
+  \item[$\square$] \badgeTimo\ \textbf{Fig.~11:} Improve visual design and readability.
+\end{itemize}
+
+\endgroup
+\clearpage
+\setcounter{page}{1}
+\fi
 
 \begin{frontmatter}
 
