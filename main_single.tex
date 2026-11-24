@@ -266,7 +266,7 @@ We then present simulation results, followed by a discussion of the policy impli
 %% ============================================================================
 %% LITERATURE
 %% ============================================================================
-\section*{Traffic congestion in Cape Town and the alleviation potential of DRT }
+\section*{Traffic congestion in Cape Town and the alleviation potential of DRT}
 \alex{split up: 1) Situation in Cape Town, 2) Concept of Congestion and why congestion arises and how to measure it? 3) Drt as promising alternative or curse due to PT cannibalization? }
 \timo{Reviewer Comment 1 (Literature Context): Improve classification of the study in the wider literature context. Emphasize that this simulation (and simulations in general) are valuable contributions to resolving current issues.}
 \timo{Reviewer Comment 2 (Mode Cannibalization): Elaborate more on mode cannibalization (appears to be a key concern for the referee).}
@@ -409,6 +409,8 @@ Mode-dependent utilities for agents in Cape Town were established by adjusting v
 
 \begin{table}[H]
 \centering
+\caption{Varying utility and pricing parameters for different transportation modes available in the simulation.}
+\label{Utility values}
 \resizebox{1\textwidth}{!}{%
 \large % Hier wird die Schriftgröße geändert
 \begin{tabular}{|l|p{2cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
@@ -419,10 +421,7 @@ Car              & 0 & -10 & 0 & -11 & 0 \\ \hline
 DRT              & 0 & varying & 0 & varying & 0 \\ \hline
 \end{tabular}
 }
-\caption{Varying utility and pricing parameters for different transportation modes available in the simulation}
-\label{Utility values}
 \end{table}
-\aitodo{Table captions above the table and always a period at the end.}
 
 It becomes evident that, under this modeling setup, travel time using a particular mode does not directly impact an agent's (dis)utility while traveling.
 However, longer travel times reduce the time available for activities (captured by the first term in equation~\ref{1}), indirectly lowering the agent’s overall score.
@@ -433,8 +432,7 @@ The simulation outcomes should therefore be interpreted as the potential congest
 
 \alex{new subsection? Explain MATSIM-internal DRT mechanism}
 
-\subsection*{Baseline Cape Town MATSim-scenario and Calibration}
-\aitodo{Check consistent spelling of ``Cape Town'' (was ``Capetown'' in PDF heading and captions).}
+\subsection*{Baseline Cape Town MATSim scenario and calibration}
 \timo{Reviewer Comment 4 (Reduce Study Biases): Use more current / overlapping data. Try to ``update'' the whole study.}
 
 A synthetic scenario of Cape Town with a population sample size of 10\,\% is employed for the study.
@@ -464,7 +462,7 @@ This goes to show that the model is fit well against major mobility patterns, in
 \centering
 \includegraphics[width=1\textwidth]{images/Meine_Karte_mit_Inset_22_cropped.pdf}
   \captionsetup{width=.8\textwidth}
-  \caption{Free flow speed Divergence on Major Roads in Capetown on an Average Wednesday in October 2022 for Capetown (Data: TomTom). Points depict traffic count stations that have been used to calibrate the simulation}
+  \caption{Free-flow speed divergence on major roads in Cape Town on an average Wednesday in October 2022 (Data: TomTom). Points depict traffic count stations that have been used to calibrate the simulation.}
   \label{fig:x_1}
   \timo{Fig. 1: Elaborate a bit more. What do we actually see? The CBD (Central Business District) is not explained.}
   \leif{Fig. 1: Since the points are the more significant point of including this figure, they should be more visible.}
@@ -477,14 +475,13 @@ As noted earlier, since scheduled transport operates on artificial links that ha
 \centering
 \includegraphics[width=1\textwidth]{images/airport_count_station.pdf}
   \captionsetup{width=.8\textwidth}
-  \caption{Simulation Calibration Results for Traffic Count Station near Airport}
+  \caption{Simulation calibration results for traffic count station near airport.}
   \label{fig:x_2}
   \timo{Fig. 2: Recreate the figure using the mean of all counting stations, and include standard deviation as error bars for each hourly bar.}
   \leif{Fig. 2: More info on this figure. Are those averages? Is it weekdays? Can we come up with a figure of ``accuracy'' instead of just showing a bar plot?}
 \end{figure}
 
-\subsection*{DRT scenarios \& parameterization}
-\aitodo{Review your headings. Sometimes capital letters, sometimes lower case.} 
+\subsection*{DRT scenarios and parameterization}
 
 The main objective of this study is to analyze whether introduction of a large-scale DRT fleet is able to reduce congestion by encouraging a modal shift from private cars to DRT while prevent public transport cannibalization by the new introduced mode.
 To achieve this, we design a service area where agents who begin or end their trips within the designated area have the option to switch to DRT.
@@ -505,7 +502,7 @@ Car usage remains particularly high in the more affluent suburbs surrounding the
 \centering
 \includegraphics[width=0.6\textwidth]{images/inter-wards_car_trips_origins_edit-3_cropped.pdf}
 \captionsetup{width=.9\textwidth}
-\caption{Share of inter-ward car trip origins per ward in \% (Data: TomTom 2022)}
+\caption{Share of inter-ward car trip origins per ward in \% (Data: TomTom 2022).}
 \label{fig:x_5}
 \timo{Fig. 3: Address why outer regions are unattractive for DRT (due to distance / pricing?). Also, mark the airport clearly.}
 \end{figure}
@@ -528,7 +525,7 @@ Congestion inside the designated DRT service area (131,500 hours) is slightly hi
 \centering
 \includegraphics[width=0.6\textwidth]{images/daily_delay_basecase_edit-3_cropped.pdf}
 \captionsetup{width=.9\textwidth}
-\caption{Simulation baseline scenario: Spatial distribution of daily congestion. The blue-highlighted area marks the DRT service area constructed}
+\caption{Simulation baseline scenario: Spatial distribution of daily congestion. The blue-highlighted area marks the DRT service area constructed.}
 \label{fig:x_3}
 \timo{Fig. 4: Clarify if this represents congestion delay per person or per ride. Note heavy congestion around the airport (?), but check why there are not as many car trip origins compared to Fig. 3.}
 \end{figure}
@@ -549,6 +546,8 @@ In total, we evaluate 60 different scenarios based on all value combinations of 
 
 \begin{table}[h]
 \centering
+\caption{Complete parameter grid for all 60 simulated DRT scenarios.}
+\label{tab:drt_parameters}
 \resizebox{1\textwidth}{!}{%
 \begin{tabular}{c|c|c}
 \hline
@@ -558,8 +557,6 @@ In total, we evaluate 60 different scenarios based on all value combinations of 
 \hline
 \end{tabular}
 }
-\caption{Complete parameter grid for all 60 simulated DRT scenarios}
-\label{tab:drt_parameters}
 \end{table}
 
 The pricing assumptions were selected to reflect realistic affordability thresholds for upper-middle-income households in Cape Town, who are more likely to adopt DRT as a viable alternative to private cars or existing ride-hailing services.
@@ -591,7 +588,7 @@ By optimizing routes, reducing stop-and-go traffic patterns, and potentially inc
 \centering
 \includegraphics[width=0.9\textwidth]{images/drt_scenarios_grid_congestion_car_change_edit.png}
 \captionsetup{width=.9\textwidth}
-\caption{DRT introduction: Impact on car use and congestion}
+\caption{DRT introduction: Impact on car use and congestion.}
 \label{fig:x_6}
 \timo{Fig. 5 (and Fig. 7): Clarify the y-axis: change in what metric?}
 \end{figure}
@@ -607,7 +604,7 @@ Congestion reduction outside the service area is the smallest, though still posi
 \centering
 \includegraphics[width=.9\textwidth]{images/grid_congestion_different_areas_edit.png}
 \captionsetup{width=.9\textwidth}
-\caption{DRT introduction: Impact on congestion in different areas}
+\caption{DRT introduction: Impact on congestion in different areas.}
 \label{fig:x_10}
 \end{figure}
 
@@ -625,7 +622,7 @@ Nevertheless, as observed in Figure \ref{fig:x_6}, congestion still decreases, s
 \centering
 \includegraphics[width=.9\textwidth]{images/drt_mileage_edit.png}
 \captionsetup{width=.9\textwidth}
-\caption{DRT introduction: Impact on private motorized and public transport mileage}
+\caption{DRT introduction: Impact on private motorized and public transport mileage.}
 \label{fig:x_8}
 \timo{Fig. 7 (and Fig. 5): Clarify the y-axis: change in what metric? Also: Why does car mileage go back up between 1.0 and 1.5?}
 \end{figure}
@@ -646,7 +643,7 @@ Accordingly, it can be concluded when DRT is priced competitively, it directly a
 \centering
 \includegraphics[width=0.9\textwidth]{images/drt_mode_switch_behavior_edit.png}
 \captionsetup{width=.9\textwidth}
-\caption{DRT introduction: Mode switch behavior}
+\caption{DRT introduction: Mode switch behavior.}
 \label{fig:x_7}
 \end{figure}
 
@@ -661,7 +658,7 @@ These findings highlight the importance of optimizing DRT operations to maximize
 \centering
 \includegraphics[width=0.9\textwidth]{images/drt_occupancy_grid_edit.png}
 \captionsetup{width=.9\textwidth}
-\caption{DRT introduction: Occupancy profiles of DRT vehicles}
+\caption{DRT introduction: Occupancy profiles of DRT vehicles.}
 \label{fig:x_9}
 \timo{Fig. 9: Explain what happens here. Is the effect visible only from the 3rd to 4th column?}
 \end{figure}
@@ -676,7 +673,7 @@ This significant improvement in the CBD underscores the potential of DRT to alle
 \centering
 \includegraphics[width=0.9\textwidth]{images/median_scenario_congestion_map_edit_3.png}
 \captionsetup{width=.9\textwidth}
-\caption{Median DRT scenario: absolute and relative change in congestion. The bold areas mark the DRT service area constructed}
+\caption{Median DRT scenario: Absolute and relative change in congestion. The bold areas mark the DRT service area constructed.}
 \label{fig:x_11}
 \timo{Fig. 10: Explain why there is a dramatic increase in congestion at certain specific spots.}
 \end{figure}
@@ -697,7 +694,7 @@ Similar mixed results on travel times have been reported by \citep{reck2020share
 \centering
 \includegraphics[width=0.9\textwidth]{images/median_scenario_pt_car_travel_time_change_edit.pdf}
 \captionsetup{width=.9\textwidth}
-\caption{Median DRT scenario: Median travel time for car and public transport before and after DRT introduction}
+\caption{Median DRT scenario: Median travel time for car and public transport before and after DRT introduction.}
 \label{fig:x_12}
 \timo{Fig. 11: Needs visual improvement (``looks a bit ugly ;)``).}
 \end{figure}
@@ -708,7 +705,7 @@ Similar mixed results on travel times have been reported by \citep{reck2020share
 %% ============================================================================
 %% DISCUSSION
 %% ============================================================================
-\section*{Dicussion}
+\section*{Discussion}
 
 Our simulation study demonstrates that introducing DRT in Cape Town can effectively reduce traffic congestion, with the extent of relief depending on fleet size and pricing strategies.
 Across 60 scenarios, DRT consistently decreased congestion, with the most effective configurations achieving up to 28.2\,\% citywide reductions.
@@ -752,7 +749,7 @@ Additionally, policy incentives may be necessary to encourage DRT adoption, part
 %\centering
 %\includegraphics[width=.9\textwidth]{images/drt_service_areas_via.png}
 %  \captionsetup{width=.9\textwidth}
-%  \caption{Visualization of MATSim Simulation with DRT Service Areas in Capetown (red-%filled polygons).}
+%  \caption{Visualization of MATSim Simulation with DRT Service Areas in Cape Town (red-%filled polygons).}
  % \label{fig:7}
 %\end{figure}
 
