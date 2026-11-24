@@ -39,6 +39,7 @@
 \usepackage{amssymb}
 %% Useful packages
 \usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -507,21 +508,20 @@ $\beta_{\text{transfer},\text{mode}} \times x_{\text{transfer},q}$ represents a 
 Table~\ref{Utility values} lists the mode-specific utility values and pricing parameters used for Cape Town.
 Mode-dependent utilities for agents in Cape Town were established by adjusting values of the well-established Berlin scenario \citep{Ziemke.2019} until mode share and congestion calibration targets of Cape Town were met to match local sociodemopgrahic characteristics and travel dynamics (for further information on the calibration excercise, see section below).
 
-\aitodo{make this table prettier}
 \begin{table}[H]
 \centering
 \caption{Varying utility and pricing parameters for different transportation modes available in the simulation.}
 \label{Utility values}
-\resizebox{1\textwidth}{!}{%
-\large % Hier wird die Schriftgröße geändert
-\begin{tabular}{|l|p{2cm}|p{3cm}|p{4cm}|p{3cm}|p{3cm}|}
-\hline
-\textbf{Mode}             & \textbf{Constant ($C$)} & \textbf{Daily monetary constant (DMC)} & \textbf{Marginal utility of travelling ($\beta_{\text{trav}}$) } & \textbf{Monetary distance rate (ct/km) ($\gamma_{d})$} & \textbf{Transfer utility ($\beta_{transfer}$)} \\ \hline
-Public transport & 0 & -1.9 & 0 & 0 & -1 \\ \hline
-Car              & 0 & -10 & 0 & -11 & 0 \\ \hline
-DRT              & 0 & varying & 0 & varying & 0 \\ \hline
-\end{tabular}
-}
+\small
+\begin{tabularx}{\textwidth}{l *{5}{>{\centering\arraybackslash}X}}
+\toprule
+\textbf{Mode} & \textbf{Constant} ($C$) & \textbf{Daily monetary constant} ($DMC$) & \textbf{Marginal utility of travelling} ($\beta_{\text{trav}}$) & \textbf{Monetary distance rate} [ct/km] ($\gamma_{d}$) & \textbf{Transfer utility} ($\beta_{\text{transfer}}$) \\
+\midrule
+Public transport & 0 & $-1.9$ & 0 & 0 & $-1$ \\
+Car              & 0 & $-10$  & 0 & $-11$ & 0 \\
+DRT              & 0 & varying & 0 & varying & 0 \\
+\bottomrule
+\end{tabularx}
 \end{table}
 
 It becomes evident that, under this modeling setup, travel time using a particular mode does not directly impact an agent's (dis)utility while traveling.
@@ -653,15 +653,13 @@ In total, we evaluate 60 different scenarios based on all value combinations of 
 \centering
 \caption{Complete parameter grid for all 60 simulated DRT scenarios.}
 \label{tab:drt_parameters}
-\resizebox{1\textwidth}{!}{%
-\begin{tabular}{c|c|c}
-\hline
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
 \textbf{Fleet size (\% of daily car drivers)} & \textbf{Daily DRT fee (\% of PT daily fee)} & \textbf{Variable DRT fee (\% of car km fee)} \\
-\hline
+\midrule
 0.5\,\%, 1.0\,\%, 1.5\,\%, 2.0\,\% & 200\,\%, 250\,\%, 300\,\% & 45.45\,\%, 55.55\,\%, 65.65\,\%, 75\,\%, 100\,\% \\
-\hline
-\end{tabular}
-}
+\bottomrule
+\end{tabularx}
 \end{table}
 
 The pricing assumptions were selected to reflect realistic affordability thresholds for upper-middle-income households in Cape Town, who are more likely to adopt DRT as a viable alternative to private cars or existing ride-hailing services.
