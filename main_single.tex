@@ -50,16 +50,20 @@
 \usepackage{subfiles}
 \usepackage{soul}
 
-\newcommand{\timo}[1]{\todo[inline, color=orange!30]{\textbf{Timo:} #1}}
-\newcommand{\leif}[1]{\todo[inline, color=yellow!40]{\textbf{Leif:} #1}}
-\newcommand{\aitodo}[1]{\todo[inline, color=red!40]{\textbf{AI TODO:} #1}}
-\newcommand{\RevieweroneRTBM}[1]{\todo[inline, color=green!40]{\textbf{Revier1RTBM:} #1}}
-\newcommand{\alex}[1]{\todo[inline, color=blue!40]{\textbf{Alex:} #1}}
-
 %% Toggle for the structured TODO overview page before the manuscript
 %% Set to \showtodooverviewfalse before submission to hide the overview page
 \newif\ifshowtodooverview
 \showtodooverviewtrue
+
+\DeclareRobustCommand{\todobacklink}{%
+  \ifshowtodooverview\quad{\scriptsize\hyperlink{todo-overview}{[\,$\uparrow$ Overview\,]}}\fi
+}
+
+\newcommand{\timo}[1]{\todo[inline, color=orange!30]{\textbf{Timo:} #1\todobacklink}}
+\newcommand{\leif}[1]{\todo[inline, color=yellow!40]{\textbf{Leif:} #1\todobacklink}}
+\newcommand{\aitodo}[1]{\todo[inline, color=red!40]{\textbf{AI TODO:} #1\todobacklink}}
+\newcommand{\RevieweroneRTBM}[1]{\todo[inline, color=green!40]{\textbf{Revier1RTBM:} #1\todobacklink}}
+\newcommand{\alex}[1]{\todo[inline, color=blue!40]{\textbf{Alex:} #1\todobacklink}}
 
 \newcommand{\todobadge}[2]{\colorbox{#1}{\textbf{\scriptsize #2}}}
 \newcommand{\badgeTimo}{\todobadge{orange!30}{Timo}}
@@ -103,11 +107,12 @@
 %% ============================================================================
 \ifshowtodooverview
 \begingroup
+\pagenumbering{roman}
 \pagestyle{empty}
 \footnotesize
 \setlength{\parskip}{2pt}
 
-{\large\bfseries Overview of Remaining Manuscript TODOs}\hfill{\scriptsize\textit{Toggle via \texttt{\textbackslash showtodooverviewfalse}}}\\[3pt]
+\hypertarget{todo-overview}{}{\large\bfseries Overview of Remaining Manuscript TODOs}\hfill{\scriptsize\textit{Toggle via \texttt{\textbackslash showtodooverviewfalse}}}\\[3pt]
 \hrule
 \vspace{4pt}
 \noindent\textbf{Summary (40 open items):}\quad
@@ -115,72 +120,72 @@
 \badgeTimo\ 18 \quad|\quad
 \badgeLeif\ 17 \quad|\quad
 \badgeAlex\ 4 \quad
-{\scriptsize\textit{(Inline notes toggled via \texttt{todonotes} package; paper starts on next page.)}}
+{\scriptsize\textit{(Click any blue title to jump to the note in the text.)}}
 
 \vspace{4pt}
 \noindent\textbf{1. Title, Abstract \& Highlights (6)}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
-  \item[$\square$] \badgeTimo\ \textbf{Title:} Remove the word ``overburdened'' from the paper title.
-  \item[$\square$] \badgeTimo\ \textbf{Abstract (General Tone):} Focus more on the strengths of the study results and structure the abstract more logically.
-  \item[$\square$] \badgeTimo\ \textbf{Abstract (Company Names):} Reconsider naming ``Uber and Bolt'' (check whether naming specific companies is standard practice).
-  \item[$\square$] \badgeTimo\ \textbf{Abstract (Transferability):} Remove or attenuate ``facilitating direct transferability to other regions worldwide''.
-  \item[$\square$] \badgeTimo\ \textbf{Abstract (Transferability):} Reformulate policy recommendations and transferable framework claims for global metropolises more carefully.
-  \item[$\square$] \badgeRev\ \textbf{Core Reviewer 1 Concerns:} (1)~Point out weaknesses of existing simulation approaches in Intro/Lit Review and highlight advantages of simulation models; (2)~Theoretically describe PT cannibalization and show how the ABM structure fits to simulate it; (3)~Elaborate on congestion and PT cannibalization beyond a simple mode choice set, including communication methods as an emerging DRT characteristic; (4)~Provide better details on data collection and treatment to mitigate large-scale study biases.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:title-overburdened}{\textbf{Title:}} Remove the word ``overburdened'' from the paper title.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-tone}{\textbf{Abstract (General Tone):}} Focus more on the strengths of the study results and structure the abstract more logically.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-companies}{\textbf{Abstract (Company Names):}} Reconsider naming ``Uber and Bolt'' (check whether naming specific companies is standard practice).
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-transfer1}{\textbf{Abstract (Transferability):}} Remove or attenuate ``facilitating direct transferability to other regions worldwide''.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:abstract-transfer2}{\textbf{Abstract (Transferability):}} Reformulate policy recommendations and transferable framework claims for global metropolises more carefully.
+  \item[$\square$] \badgeRev\ \hyperlink{todo:rev1-summary}{\textbf{Core Reviewer 1 Concerns:}} (1)~Point out weaknesses of existing simulation approaches in Intro/Lit Review and highlight advantages of simulation models; (2)~Theoretically describe PT cannibalization and show how the ABM structure fits to simulate it; (3)~Elaborate on congestion and PT cannibalization beyond a simple mode choice set, including communication methods as an emerging DRT characteristic; (4)~Provide better details on data collection and treatment to mitigate large-scale study biases.
 \end{itemize}
 
 \noindent\textbf{2. Introduction (5)}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
-  \item[$\square$] \badgeLeif\ \textbf{Overall:} Valid points, but not specific and clear enough regarding the research gap and paper contributions.
-  \item[$\square$] \badgeLeif\ \textbf{Citation:} Add a source for the claim that the Global South exhibits the highest urbanization rates globally.
-  \item[$\square$] \badgeLeif\ \textbf{Wording:} Rephrase ``The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.''
-  \item[$\square$] \badgeLeif\ \textbf{DRT Definition:} Qualify the statement that DRT is not bound to fixed routes/schedules (depends on the service setup).
-  \item[$\square$] \badgeLeif\ \textbf{Contribution Paragraph:} Make the closing framing paragraph (``Against this backdrop\dots'') more precise: explicitly state the research gap, value-added, and exact methodology.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-overall}{\textbf{Overall:}} Valid points, but not specific and clear enough regarding the research gap and paper contributions.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-source}{\textbf{Citation:}} Add a source for the claim that the Global South exhibits the highest urbanization rates globally.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-rephrase}{\textbf{Wording:}} Rephrase ``The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.''
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-drt-setup}{\textbf{DRT Definition:}} Qualify the statement that DRT is not bound to fixed routes/schedules (depends on the service setup).
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:intro-gap}{\textbf{Contribution Paragraph:}} Make the closing framing paragraph (``Against this backdrop\dots'') more precise: explicitly state the research gap, value-added, and exact methodology.
 \end{itemize}
 
 \noindent\textbf{3. Literature Review (14)}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
-  \item[$\square$] \badgeAlex\ \textbf{Section Structure:} Split into subsections: (1)~Situation in Cape Town, (2)~Concept of congestion (causes \& measurement), (3)~DRT as promising alternative or curse due to PT cannibalization.
-  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 1 (Literature Context):} Improve classification in the wider literature; emphasize that simulations are valuable contributions to resolving current issues.
-  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 2 (Mode Cannibalization):} Elaborate more on mode cannibalization (key concern for the referee).
-  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 3 (Congestion \& Cannibalization):} Elaborate on congestion, PT cannibalization, and how both phenomena are intertwined.
-  \item[$\square$] \badgeLeif\ \textbf{Urban Sprawl:} Include more diverse reasons for peripheral living beyond apartheid spatial planning alone.
-  \item[$\square$] \badgeLeif\ \textbf{Direct Quote:} Add page number to the TDCIP reference for the direct quote on public transport challenges.
-  \item[$\square$] \badgeLeif\ \textbf{Units \& Currencies:} Unify spacing around currencies and units (e.g., USD 160\,m vs.\ 192 m Rand vs.\ USD 11m vs.\ USD362\,m).
-  \item[$\square$] \badgeLeif\ \textbf{Accessibility Paragraph:} Avoid mere enumeration of Cape Town transport findings; cover fewer concepts and explain them in greater depth.
-  \item[$\square$] \badgeLeif\ \textbf{Wording:} Rephrase ``The problem of congestion will likely persist\dots'' so it does not sound as if DRT contributes to persistent congestion.
-  \item[$\square$] \badgeLeif\ \textbf{DRT Classification:} Consider supporting the classification / overlap of DRT, paratransit, and shared mobility with a visualization.
-  \item[$\square$] \badgeLeif\ \textbf{Clarity / Repetition:} Clarify ad-hoc vs.\ centrally coordinated DRT (e.g., MOIA) earlier and reduce repetition.
-  \item[$\square$] \badgeAlex\ \textbf{Cannibalization Framework:} Explain the theoretical framework of DRT--transit integration vs.\ cannibalization at its first mention.
-  \item[$\square$] \badgeLeif\ \textbf{Research Gap:} Strengthen the concluding statement (``This study attempts to fill this research gap.'').
-  \item[$\square$] \badgeLeif\ \textbf{Simulation Literature:} Add a dedicated subsection critically reflecting on existing agent-based modeling and DRT simulation papers.
+  \item[$\square$] \badgeAlex\ \hyperlink{todo:lit-split}{\textbf{Section Structure:}} Split into subsections: (1)~Situation in Cape Town, (2)~Concept of congestion (causes \& measurement), (3)~DRT as promising alternative or curse due to PT cannibalization.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:lit-rev1}{\textbf{Reviewer Comment 1 (Literature Context):}} Improve classification in the wider literature; emphasize that simulations are valuable contributions to resolving current issues.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:lit-rev2}{\textbf{Reviewer Comment 2 (Mode Cannibalization):}} Elaborate more on mode cannibalization (key concern for the referee).
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:lit-rev3}{\textbf{Reviewer Comment 3 (Congestion \& Cannibalization):}} Elaborate on congestion, PT cannibalization, and how both phenomena are intertwined.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-sprawl}{\textbf{Urban Sprawl:}} Include more diverse reasons for peripheral living beyond apartheid spatial planning alone.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-quote-page}{\textbf{Direct Quote:}} Add page number to the TDCIP reference for the direct quote on public transport challenges.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-currency}{\textbf{Units \& Currencies:}} Unify spacing around currencies and units (e.g., USD 160\,m vs.\ 192 m Rand vs.\ USD 11m vs.\ USD362\,m).
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-accessibility}{\textbf{Accessibility Paragraph:}} Avoid mere enumeration of Cape Town transport findings; cover fewer concepts and explain them in greater depth.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-persist}{\textbf{Wording:}} Rephrase ``The problem of congestion will likely persist\dots'' so it does not sound as if DRT contributes to persistent congestion.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-viz}{\textbf{DRT Classification:}} Consider supporting the classification / overlap of DRT, paratransit, and shared mobility with a visualization.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-moia}{\textbf{Clarity / Repetition:}} Clarify ad-hoc vs.\ centrally coordinated DRT (e.g., MOIA) earlier and reduce repetition.
+  \item[$\square$] \badgeAlex\ \hyperlink{todo:lit-cannib-framework}{\textbf{Cannibalization Framework:}} Explain the theoretical framework of DRT--transit integration vs.\ cannibalization at its first mention.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-gap-weak}{\textbf{Research Gap:}} Strengthen the concluding statement (``This study attempts to fill this research gap.'').
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:lit-sim-subsec}{\textbf{Simulation Literature:}} Add a dedicated subsection critically reflecting on existing agent-based modeling and DRT simulation papers.
 \end{itemize}
 
 \noindent\textbf{4. Method (10)}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
-  \item[$\square$] \badgeLeif\ \textbf{Theoretical Concepts:} Consider adding a dedicated section explaining transport economics/science concepts such as cannibalization (per Reviewer 1, Comment~2).
-  \item[$\square$] \badgeAlex\ \textbf{Intermodal Trips:} Clarify in the model description whether agents can or cannot perform intermodal trips (different mode legs within one trip).
-  \item[$\square$] \badgeAlex\ \textbf{DRT Mechanism:} Consider a new subsection explaining the MATSim-internal DRT dispatch/routing mechanism.
-  \item[$\square$] \badgeTimo\ \textbf{Reviewer Comment 4 (Reduce Study Biases):} Use more current / overlapping data and consider updating the study inputs.
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~1:} Elaborate more on what is shown and explicitly explain CBD (Central Business District).
-  \item[$\square$] \badgeLeif\ \textbf{Fig.~1:} Make the traffic count station points more visible.
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~2:} Recreate using the mean across all counting stations with standard deviation error bars for each hourly bar.
-  \item[$\square$] \badgeLeif\ \textbf{Fig.~2:} Provide more detail (averages? weekdays?) and consider an ``accuracy'' figure instead of only a bar plot.
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~3:} Address why outer regions are unattractive for DRT (distance / pricing?) and mark the airport clearly.
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~4:} Clarify whether congestion delay is per person or per ride; explain heavy congestion near the airport despite fewer car trip origins in Fig.~3.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:method-concepts}{\textbf{Theoretical Concepts:}} Consider adding a dedicated section explaining transport economics/science concepts such as cannibalization (per Reviewer 1, Comment~2).
+  \item[$\square$] \badgeAlex\ \hyperlink{todo:method-intermodal}{\textbf{Intermodal Trips:}} Clarify in the model description whether agents can or cannot perform intermodal trips (different mode legs within one trip).
+  \item[$\square$] \badgeAlex\ \hyperlink{todo:method-drt-mech}{\textbf{DRT Mechanism:}} Consider a new subsection explaining the MATSim-internal DRT dispatch/routing mechanism.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:method-rev4-data}{\textbf{Reviewer Comment 4 (Reduce Study Biases):}} Use more current / overlapping data and consider updating the study inputs.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig1-timo}{\textbf{Fig.~1:}} Elaborate more on what is shown and explicitly explain CBD (Central Business District).
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:fig1-leif}{\textbf{Fig.~1:}} Make the traffic count station points more visible.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig2-timo}{\textbf{Fig.~2:}} Recreate using the mean across all counting stations with standard deviation error bars for each hourly bar.
+  \item[$\square$] \badgeLeif\ \hyperlink{todo:fig2-leif}{\textbf{Fig.~2:}} Provide more detail (averages? weekdays?) and consider an ``accuracy'' figure instead of only a bar plot.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig3-timo}{\textbf{Fig.~3:}} Address why outer regions are unattractive for DRT (distance / pricing?) and mark the airport clearly.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig4-timo}{\textbf{Fig.~4:}} Clarify whether congestion delay is per person or per ride; explain heavy congestion near the airport despite fewer car trip origins in Fig.~3.
 \end{itemize}
 
 \noindent\textbf{5. Results (5)}
 \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~5 (and Fig.~7):} Clarify the y-axis (change in what metric?).
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~7 (and Fig.~5):} Clarify the y-axis and explain why car mileage goes back up between fleet sizes 1.0 and 1.5.
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~9:} Explain what happens in the occupancy profiles (is the effect visible only from the 3rd to 4th column?).
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~10:} Explain why there is a dramatic increase in congestion at certain specific spots.
-  \item[$\square$] \badgeTimo\ \textbf{Fig.~11:} Improve visual design and readability.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig5-timo}{\textbf{Fig.~5 (and Fig.~7):}} Clarify the y-axis (change in what metric?).
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig7-timo}{\textbf{Fig.~7 (and Fig.~5):}} Clarify the y-axis and explain why car mileage goes back up between fleet sizes 1.0 and 1.5.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig9-timo}{\textbf{Fig.~9:}} Explain what happens in the occupancy profiles (is the effect visible only from the 3rd to 4th column?).
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig10-timo}{\textbf{Fig.~10:}} Explain why there is a dramatic increase in congestion at certain specific spots.
+  \item[$\square$] \badgeTimo\ \hyperlink{todo:fig11-timo}{\textbf{Fig.~11:}} Improve visual design and readability.
 \end{itemize}
 
 \endgroup
 \clearpage
-\setcounter{page}{1}
+\pagenumbering{arabic}
 \fi
 
 \begin{frontmatter}
@@ -263,8 +268,8 @@
 \newpage
 \begin{abstract}
 %% Text of abstract
-\timo{Title: Remove the word ``overburdened'' in the paper title.}
-\timo{General Tone (Abstract): Focus more on the strengths of the study results and structure the abstract more logically.}
+\hypertarget{todo:title-overburdened}{}\timo{Title: Remove the word ``overburdened'' in the paper title.}
+\hypertarget{todo:abstract-tone}{}\timo{General Tone (Abstract): Focus more on the strengths of the study results and structure the abstract more logically.}
 
 %By employing relative fleet sizing and pricing schemes this study establishes a scalable baseline that is independent of site-specific absolute values, facilitating direct transferability to other regions worldwide
 
@@ -272,19 +277,19 @@
 
 Cape Town, South Africa, is a highly congested city requiring urgent intervention to curb private motorized transport.
 Existing minibus taxis as well as non-shared ride-hailing services like Uber and Bolt have failed to alleviate, and arguably exacerbated, this problem.
-\timo{Abstract --- Company Names: Reconsider ``like Uber and Bolt\dots'' Is it common practice to name specific companies in this context?}
+\hypertarget{todo:abstract-companies}{}\timo{Abstract --- Company Names: Reconsider ``like Uber and Bolt\dots'' Is it common practice to name specific companies in this context?}
 Demand-responsive transport (DRT) emerges as a promising sustainable alternative.
 While the potential risks, like public transport cannibalization, are widely debated, their practical implications in the context of the Global South are under-researched.
 To address this gap, we simulate the operation of a hypothetical large-scale shareable DRT service in Cape Town using an Agent-Based Transport Simulation (MATSim).
 By employing relative fleet sizing and pricing schemes this study establishes a scalable baseline that is independent of site-specific absolute values, facilitating direct transferability to other regions worldwide.
-\timo{Abstract --- Transferability Claims: Statements like ``\dots facilitating direct transferability to other regions worldwide'' are dangerous. Remove or attenuate them.}
+\hypertarget{todo:abstract-transfer1}{}\timo{Abstract --- Transferability Claims: Statements like ``\dots facilitating direct transferability to other regions worldwide'' are dangerous. Remove or attenuate them.}
 Our findings show that DRT can reduce citywide congestion by up to 28.2\,\% (up to 50\,\% in buffer areas), demonstrating its potential to alleviate traffic bottlenecks.
 Critically, it facilitated multi-modal trips, increasing overall public transport usage without significant cannibalization.
 Effectiveness was maximized by competitive pricing and larger fleets, with shared rides (between 25\,\% and 40\,\% of DRT trips) mitigating dead mileage.
 While our simulation results demonstrate substantial congestion relief under the assumption of rational mode-choice responses, real-world adoption in Cape Town may be moderated by socio-behavioural barriers.
 Persistent distrust in shared systems, heightened concerns over personal safety, and the entrenched social status of private car ownership often lead commuters to prefer private vehicles even under severe congestion.
 Acknowledging these factors, this study nonetheless provides policy-relevant recommendations for the Global South cities in general, Cape Town in particular, and offers a transferable methodological framework for other congested metropolises worldwide.
-\timo{Abstract --- Transferability Claims: Reformulate sentences regarding policy recommendations and transferable frameworks for global metropolises more carefully.}
+\hypertarget{todo:abstract-transfer2}{}\timo{Abstract --- Transferability Claims: Reformulate sentences regarding policy recommendations and transferable frameworks for global metropolises more carefully.}
 
 \end{abstract}
 
@@ -292,7 +297,7 @@ Acknowledging these factors, this study nonetheless provides policy-relevant rec
 \begin{highlights}
 
 \RevieweroneRTBM{Reviewer summary note pasted at Highlights: (1) Point out weaknesses of existing simulation approaches in Intro/Lit Review and highlight advantages of simulation models. (2) Theoretically describe PT cannibalization and show how the ABM model structure fits to simulate it. (3) Carefully elaborate on congestion and PT cannibalization beyond a simple mode choice set, including communication methods as an emerging DRT characteristic. (4) Provide better details on data collection and treatment to mitigate large-scale study biases.}
-\item DRT reduced citywide congestion by up to 28.2\%, with buffer areas experiencing reductions of up to 50\%, demonstrating its potential to alleviate urban traffic bottlenecks.
+\item \hypertarget{todo:rev1-summary}{}DRT reduced citywide congestion by up to 28.2\%, with buffer areas experiencing reductions of up to 50\%, demonstrating its potential to alleviate urban traffic bottlenecks.
 \item DRT facilitates multi-modal trips, increasing public transport usage without significant cannibalization, supporting sustainable urban mobility in Cape Town.
 \item Average car travel trip times decreased by 12--17 minutes, but public transport trips in service areas saw increases, highlighting the need for operational optimization.
 \item Competitive pricing and larger fleets maximize DRT’s effectiveness, with shared rides (25--40\% of trips) offsetting dead mileage caused by re-allocation of empty DRT vehicles.
@@ -319,20 +324,20 @@ Demand Responsive Transport \sep Transport Systems \sep Congestion \sep Overburd
 %% ============================================================================
 %% INTRODUCTION
 %% ============================================================================
-\section*{Introduction}
+\hypertarget{todo:intro-overall}{}\section*{Introduction}
 \leif{Overall: good and valid points, but not specific and clear enough towards research gap and paper contributions.}
 
 The relationship between urbanization and economic development has been widely studied \citep{ritchie2018urbanization}.
 Infrastructure, transport, and institutions play a crucial role in steering this nexus \citep{rodrigue2020geography}.
 \absatz
-Currently, the Global South exhibits the highest urbanization rates globally.\leif{Source?}
+Currently, the Global South exhibits the highest urbanization rates globally.\hypertarget{todo:intro-source}{}\leif{Source?}
 Due to systemic underinvestment in public transport infrastructure, car dependency, ownership, and use are simultaneously rising, leading to high levels of traffic congestion.
 Traffic congestion has high opportunity costs, including increased transaction costs and productive hours spent driving in traffic.
 These high congestion levels, in turn, increase emissions and other negative externalities, such as reduced social well-being and worsened socioeconomic inequality \citep{Wang2019-ge}.
 Also, they are negatively affecting many sectors of these developing economies through distorted freight supply chains \citep{jabbarpour2018applications, miskolczi2021urban} and can spill over beyond individuals to city-wide stagnation and thus hinder national development.
 As such, the issue of congestion has a high priority on the political agenda in theses cities \citep{costa2017urban, miskolczi2021urban, perveen2017evaluating}.
 \absatz
-The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.\leif{Rephrase.}
+The urban mobility crisis is acutely felt in large African metropolises, and Cape Town, South Africa, is no exception.\hypertarget{todo:intro-rephrase}{}\leif{Rephrase.}
 The city consistently ranks among the most congested metropolitan areas globally.
 According to the 2023 INRIX Global Traffic Scorecard, Cape Town ranked 9th globally out of 100 urban areas, with drivers losing an average of 83 extra hours in traffic annually \citep{inrix2023scorecard}.
 \absatz
@@ -341,7 +346,7 @@ One potentially useful transport system innovation that can help developing citi
 DRT is typically seen as a helpful addition to developed country transport systems \citep{Ben-dor, engelhardt2019quantifying, schluter2021impact, Kaddoura.2020,maggi2021price, miskolczi2021urban, zwick2021ride, article}.
 The rationale behind the effect of DRT on congestion alleviation is its ability to increase the average occupancy rate of vehicles by dynamically consolidating multiple individual trips into fewer shared vehicle journeys.
 This mechanism directly reduces the vehicle miles traveled (VMT) compared to unshared private car trips or conventional ride-hailing services, especially during peak hours.
-Unlike traditional public transport, a DRT operation is not bound to fixed routes or predetermined schedules.\leif{It depends on the service setup.}
+Unlike traditional public transport, a DRT operation is not bound to fixed routes or predetermined schedules.\hypertarget{todo:intro-drt-setup}{}\leif{It depends on the service setup.}
 Instead, its core characteristics revolve around flexibility and efficiency \citep{ronald2015simulating}.
 This efficiency stems from dynamic routing and scheduling, where vehicles do not operate over a fixed route or on a fixed schedule, allowing the service to adapt in real-time to demand.
 Furthermore, DRT utilizes shared journeys, typically involving dispatching a single vehicle to pick up multiple passengers at different points and transporting them to various destinations, often interrupting the route to accommodate new requests.
@@ -352,7 +357,7 @@ In practice, mode-choice decisions in Cape Town – and many Global South cities
 While these socio-behavioural barriers are difficult to quantify, simulating a DRT system’s physical and economic performance remains a crucial first step to benchmark the theoretical potential of DRT.
 Agent-based models (ABM), for example, can be constructed to experiment with and compare accurate outcomes for policies, making it the ideal tool to capture the decentralized, dynamic interactions between individual user choices (demand) and fleet operations (supply) necessary to accurately test DRT feasibility and its system-wide impact before costly deployment.
 \absatz
-Against this backdrop, this paper investigates the potential effects of introducing a large-scale DRT system in Cape Town, South Africa, on congestion dynamics.\leif{Not precise enough. It is missing the actual research gap and the value-added of this paper and how it is done precisely.}
+Against this backdrop, this paper investigates the potential effects of introducing a large-scale DRT system in Cape Town, South Africa, on congestion dynamics.\hypertarget{todo:intro-gap}{}\leif{Not precise enough. It is missing the actual research gap and the value-added of this paper and how it is done precisely.}
 Utilizing the Multi-Agent Transport Simulation (MATSim) framework, we rigorously test the sensitivity of the system through scenarios focused on critical operational and economic parameters, including varying fleet sizes, pricing strategies, and service designs.
 We hypothesize that DRT has the potential to significantly reduce congestion due to a decrease in private car use.
 The remainder of this article is structured as follows: first, we present a literature overview and, subsequently, lay out the model setup and parametrization of our scenario designs.
@@ -362,7 +367,7 @@ We then present simulation results, followed by a discussion of the policy impli
 %% ============================================================================
 %% LITERATURE
 %% ============================================================================
-\section*{Traffic congestion in Cape Town and the alleviation potential of DRT}
+\hypertarget{todo:lit-split}{}\hypertarget{todo:lit-rev1}{}\hypertarget{todo:lit-rev2}{}\hypertarget{todo:lit-rev3}{}\section*{Traffic congestion in Cape Town and the alleviation potential of DRT}
 \alex{split up: 1) Situation in Cape Town, 2) Concept of Congestion and why congestion arises and how to measure it? 3) Drt as promising alternative or curse due to PT cannibalization? }
 \timo{Reviewer Comment 1 (Literature Context): Improve classification of the study in the wider literature context. Emphasize that this simulation (and simulations in general) are valuable contributions to resolving current issues.}
 \timo{Reviewer Comment 2 (Mode Cannibalization): Elaborate more on mode cannibalization (appears to be a key concern for the referee).}
@@ -370,7 +375,7 @@ We then present simulation results, followed by a discussion of the policy impli
 
 Cape Town is the second-largest city in South Africa, and one of the most advanced cities in Africa.
 Its transportation system is characterised by high levels of household income spent on transport, long walking distances, waiting times and congestion \citep{StateofCT, jennings2015finding}.
-This is, at least in part, the result of urban sprawl, where most residents live on the periphery \citep{Turok2011, jennings2015finding} because of apartheid spatial planning \citep{Liphoto2025}.\leif{Would expect to be more diverse reasons as well.}
+This is, at least in part, the result of urban sprawl, where most residents live on the periphery \citep{Turok2011, jennings2015finding} because of apartheid spatial planning \citep{Liphoto2025}.\hypertarget{todo:lit-sprawl}{}\leif{Would expect to be more diverse reasons as well.}
 Transport therefore occurs in a tidal pattern with most public transport trips occurring to and from the city centre \citep{Turok2011, jennings2015finding}.
 Public transport waiting times, and travel times are generally high in the city.
 \citealp{hitge2015comparison} note the large difference in travel times between public transport and private transport in the city, affecting levels of accessibility.
@@ -381,32 +386,32 @@ In addition, ride-hailing services including Uber and Bolt, also serve a portion
 A transport survey in the Western Cape Province by Statistics South Africa reveals that many Cape Town residents (14.8\,\%) cite congestion as the main traffic problem they experience \citep{StatsSAreport}.
 Travel time was the most common determinant of transport mode choice (32.5\,\%) in the 2013 National Household Travel Survey \citep{StatsSA14}.
 These community survey results provide evidence that the experiences of city residents point to problems of congestion and a lack of public transport options.
-Public transport in Cape Town faces many challenges, such as, “overcrowding, slow journey times, poor modal integration, a lack of off-peak services, manual ticketing and an irregular timetable” \citep{TDCIP}.\leif{If it is a direct quote, update your reference accordingly (include page number).}
+Public transport in Cape Town faces many challenges, such as, “overcrowding, slow journey times, poor modal integration, a lack of off-peak services, manual ticketing and an irregular timetable” \citep{TDCIP}.\hypertarget{todo:lit-quote-page}{}\leif{If it is a direct quote, update your reference accordingly (include page number).}
 \absatz
 The problem of congestion is recognised by the transport authorities as costly in terms of time, money, and environmental impacts, and they have developed a “Congestion Management Plan” \citep{TDCIP}.
 \citealp{jennings2015finding} also notes the long travel times experienced in Cape Town, and the problem of congestion experienced as traffic converges from surrounding areas on the CBD.
 2013 data showed that travel took 71\,\% longer than it would without congestion - these are large costs for a city to bear \citep{TDA}.
 The economic costs of congestion in Cape Town have been estimated to be equivalent to 2.8 billion Rand or USD 160\,m in 2018 \citep{IOL}.
-Infrastructure projects to deal with congestion alone have cost 192 m Rand or USD 11m, whilst the total for capacity improvement and running transport in the city is 6.4 billion Rand or USD362\,m over 3 years \citep{TCT}.\leif{Check spacing around currency and units (e.g., USD 160\,m vs. 192 m Rand vs. USD 11m vs. USD362\,m).}
+Infrastructure projects to deal with congestion alone have cost 192 m Rand or USD 11m, whilst the total for capacity improvement and running transport in the city is 6.4 billion Rand or USD362\,m over 3 years \citep{TCT}.\hypertarget{todo:lit-currency}{}\leif{Check spacing around currency and units (e.g., USD 160\,m vs. 192 m Rand vs. USD 11m vs. USD362\,m).}
 These spending items reveal the city's estimation of the cost of congestion that they can address with their budget and the importance of efficient transport to the city.
 \absatz
-Moreover, accessibility\leif{It sounds like an enumeration of findings on transport in Cape Town. Maybe include fewer concepts, but explain them a bit better.} has been raised as a key framework for transport design and justice \citep{Access}.
+Moreover, accessibility\hypertarget{todo:lit-accessibility}{}\leif{It sounds like an enumeration of findings on transport in Cape Town. Maybe include fewer concepts, but explain them a bit better.} has been raised as a key framework for transport design and justice \citep{Access}.
 It is especially important in Cape Town, which has a history of discriminatory exclusionary policy that impacted city design and thus transport corridors \citep{Liphoto2025}.
 Unemployment and spatial segregation in the city form an exclusionary combination that needs to be addressed with better transport and land use planning.
 \citealp{Moyo} found that middle-income areas have more mixed land use, while poor areas remain homogenous.
 \absatz
 The city of Cape Town is aiming to increase road capacity and public transport particularly for low-income areas in the coming years \citep{IDP}.
-The problem of congestion will likely persist even with these interventions, and DRT could be a useful complement to these efforts,\leif{Rephrase. Sounds like it won't help at all and DRT could contribute to that.} especially as they do not focus on affluent areas, which contribute large volumes of vehicles.
+The problem of congestion will likely persist even with these interventions, and DRT could be a useful complement to these efforts,\hypertarget{todo:lit-persist}{}\leif{Rephrase. Sounds like it won't help at all and DRT could contribute to that.} especially as they do not focus on affluent areas, which contribute large volumes of vehicles.
 \citealp{byala2021redesigning} note that new mobility such as DRT can be incorporated into redesigning bus systems, this could be a beneficial exercise in the future of Cape Town’s traffic design as the city changes and grows and demand for efficient transport increases.
 \absatz
 DRT systems could be a helpful addition to bridge the time and cost gap between public and private transport options in Cape Town, a space where shared mobility options are suitable.
 The basic idea of DRT is that of transport provided flexibly in response to user demand signals.
 \citealp{butler2020smart} defines DRT as being able to change routes and or schedule depending on demand.
-DRT has been classified into several forms, and it overlaps with the categories of paratransit and shared mobility \citep{butler2020smart}.\leif{Could also be supported by a visualization.}
+DRT has been classified into several forms, and it overlaps with the categories of paratransit and shared mobility \citep{butler2020smart}.\hypertarget{todo:lit-viz}{}\leif{Could also be supported by a visualization.}
 The key to sharing is a higher utilization of goods by replacing permanent individual ownership with temporary on-demand access \citep{botsman2010s}.
 Whether it is classified together with sharing or not, the main idea is that DRT vehicles service many more users than a private car would \citep{munzel2018carsharing, butler2020smart}.
 It can either be area-based or line-based, with door-to-door stops \citep{vansteenwegen2022survey} or set stop points when it is stop-based.
-It can be ad-hoc, similar to existing minibus taxis, or centrally coordinated, such as the MOIA service in Hamburg, Germany \citep{KagerbauerKostorzWilkes2021_1000141282}.\leif{I think this could have been clarified before. Also, seems a bit repetitive.}
+It can be ad-hoc, similar to existing minibus taxis, or centrally coordinated, such as the MOIA service in Hamburg, Germany \citep{KagerbauerKostorzWilkes2021_1000141282}.\hypertarget{todo:lit-moia}{}\leif{I think this could have been clarified before. Also, seems a bit repetitive.}
 In this paper, DRT refers to some real-time centrally coordinated DRT using app-based technology, as such technology is well suited for dynamic requests and routing \citep{zwick2021ride}.
 As DRT is known to specifically work in mixed land-use scenarios, it would make sense to first investigate the more affluent areas of Cape Town for DRT viability \citep{yu2019exploring}.
 Design of DRT could be incorporated or complement future transit system redesign in Cape Town \citep{byala2021redesigning}.
@@ -434,14 +439,14 @@ Their research, however, is constrained by a lack of quantitative data and relie
 Using ABM to simulate the city transport system, however, addresses this challenge of limited data availability and opens up the possibility for an evaluation of experimental policies such as the introduction of large-scale DRT.
 % and we can investigate the author's conclusions that low income households would switch to ridesharing solutions and DRT could have a vital role to play in this regard , hence serving transport demand in the city.
 \absatz
-A simulation of Hamburg, Germany's MOIA service, a ridepooling service for up to five passengers in fully electric autonomous vehicles and varying fleet sizes and service areas \citep{KagerbauerKostorzWilkes2021_1000141282} finds that increasing the use of DRT has a positive effect on the use of public transport rather than 'cannibalising' (\alex{this is the first time cannibalization is mentioned, should we explain the theoretical t Framework of DRT-Transit Integration vs. Cannibalization?} it, which is often a hypothetical argument against introducing DRT.
+A simulation of Hamburg, Germany's MOIA service, a ridepooling service for up to five passengers in fully electric autonomous vehicles and varying fleet sizes and service areas \citep{KagerbauerKostorzWilkes2021_1000141282} finds that increasing the use of DRT has a positive effect on the use of public transport rather than 'cannibalising' (\hypertarget{todo:lit-cannib-framework}{}\alex{this is the first time cannibalization is mentioned, should we explain the theoretical t Framework of DRT-Transit Integration vs. Cannibalization?} it, which is often a hypothetical argument against introducing DRT.
 Furthermore in their research the large fleets with autonomous vehicles lead to the lowest costs \citep{KagerbauerKostorzWilkes2021_1000141282}.
 Others \cite{Basu.2018} find that ride-pooling services serve as a complement to public transport and increase the efficiency of the overall system by serving as a feeder to the transit system.
 On the contrary, it has been highlighted that introducing on-demand services comes with the potential threat of public transport cannibalized by shared DRT \cite{Oh.2020}.
 Simulations for Jerusalem \cite{BenDor.2022}, Berlin \cite{Kaddoura.2020} and the Rouen Normandie metropolitan area \cite{Vosooghi.2019} also indicate that cannibalization of the existing public transport sector by DRT must be avoided.
 Therefore, the introduction of 'push factors'—measures that make private car use less attractive (e.g., higher parking fees or congestion tolls)—might be necessary.
 As presented in this literature overview, there are many studies on DRT simulations and outcomes, but none focus on congestion and in particular not in the context of the Global South.
-This study attempts to fill this research gap.\leif{Not clear/strong enough.}\leif{I think I see the reviewer's point. For a simulation paper, there is basically no critical reflection of simulation papers. I would add an entire subsection of simulation studies that debate the status quo in literature in agent-based modelling etc.}
+This study attempts to fill this research gap.\hypertarget{todo:lit-gap-weak}{}\leif{Not clear/strong enough.}\hypertarget{todo:lit-sim-subsec}{}\leif{I think I see the reviewer's point. For a simulation paper, there is basically no critical reflection of simulation papers. I would add an entire subsection of simulation studies that debate the status quo in literature in agent-based modelling etc.}
 
 %A research theme losely related to DRT is Mobility-as-a-Service (MaaS). The idea behind MaaS is to have integrated transport offerings within city or regional systems \citealp{Loubser} Such motivation-based policies offer higher efficiency and lower emissions \citep{maggi2021price}. DRT is often seen as playing a key role in MaaS. Since the simulation in this work will primarily have time and price-based switching, it can be interpreted as a lower bound of modal switching without preference influencing policy or marketing being implemented to increase the switching.
 
@@ -449,7 +454,7 @@ This study attempts to fill this research gap.\leif{Not clear/strong enough.}\le
 %% ============================================================================
 %% METHOD
 %% ============================================================================
-\section*{Method}
+\hypertarget{todo:method-concepts}{}\section*{Method}
 \leif{According to the second reviewer comment, I would try to include a new section trying to explain the transport economics/science concepts, such as cannibalization etc.}
 
 To analyze the effects of significant changes to mobility services, we compare the status quo with a hypothetical case that introduces a large fleet of shared demand-responsive vehicles that Cape Town's population may use.
@@ -524,11 +529,11 @@ However, longer travel times reduce the time available for activities (captured 
 Consequently, agents will seek to avoid traffic congestion, as increased travel time decreases their utility.
 We explicitly acknowledge, however, that Cape Town travellers may exhibit additional behavioural inertia (e.g., distrust in shared or public rides or preference for private-car autonomy even under congestion) that is not fully captured by the utility function.
 The simulation outcomes should therefore be interpreted as the potential congestion relief if mode choice behaviour aligns with the modelled rational response.
-\alex{Reviewer critic Cannibalization modelling: Make it clear that agents can or cannot perform intermodal mobility trips (i.e. different mode legs during a trip) }
+\hypertarget{todo:method-intermodal}{}\alex{Reviewer critic Cannibalization modelling: Make it clear that agents can or cannot perform intermodal mobility trips (i.e. different mode legs during a trip) }
 
-\alex{new subsection? Explain MATSIM-internal DRT mechanism}
+\hypertarget{todo:method-drt-mech}{}\alex{new subsection? Explain MATSIM-internal DRT mechanism}
 
-\subsection*{Baseline Cape Town MATSim scenario and calibration}
+\hypertarget{todo:method-rev4-data}{}\subsection*{Baseline Cape Town MATSim scenario and calibration}
 \timo{Reviewer Comment 4 (Reduce Study Biases): Use more current / overlapping data. Try to ``update'' the whole study.}
 
 A synthetic scenario of Cape Town with a population sample size of 10\,\% is employed for the study.
@@ -556,6 +561,7 @@ This goes to show that the model is fit well against major mobility patterns, in
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig1-timo}{}\hypertarget{todo:fig1-leif}{}%
 \includegraphics[width=1\textwidth]{images/Meine_Karte_mit_Inset_22_cropped.pdf}
   \captionsetup{width=.8\textwidth}
   \caption{Free-flow speed divergence on major roads in Cape Town on an average Wednesday in October 2022 (Data: TomTom). Points depict traffic count stations that have been used to calibrate the simulation.}
@@ -569,6 +575,7 @@ As noted earlier, since scheduled transport operates on artificial links that ha
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig2-timo}{}\hypertarget{todo:fig2-leif}{}%
 \includegraphics[width=1\textwidth]{images/airport_count_station.pdf}
   \captionsetup{width=.8\textwidth}
   \caption{Simulation calibration results for traffic count station near airport.}
@@ -596,6 +603,7 @@ Car usage remains particularly high in the more affluent suburbs surrounding the
 
 \begin{figure}[!h]
 \centering
+\hypertarget{todo:fig3-timo}{}%
 \includegraphics[width=0.6\textwidth]{images/inter-wards_car_trips_origins_edit-3_cropped.pdf}
 \captionsetup{width=.9\textwidth}
 \caption{Share of inter-ward car trip origins per ward in \% (Data: TomTom 2022).}
@@ -619,6 +627,7 @@ Congestion inside the designated DRT service area (131,500 hours) is slightly hi
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig4-timo}{}%
 \includegraphics[width=0.6\textwidth]{images/daily_delay_basecase_edit-3_cropped.pdf}
 \captionsetup{width=.9\textwidth}
 \caption{Simulation baseline scenario: Spatial distribution of daily congestion. The blue-highlighted area marks the DRT service area constructed.}
@@ -682,6 +691,7 @@ By optimizing routes, reducing stop-and-go traffic patterns, and potentially inc
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig5-timo}{}%
 \includegraphics[width=0.9\textwidth]{images/drt_scenarios_grid_congestion_car_change_edit.png}
 \captionsetup{width=.9\textwidth}
 \caption{DRT introduction: Impact on car use and congestion.}
@@ -716,6 +726,7 @@ Nevertheless, as observed in Figure \ref{fig:x_6}, congestion still decreases, s
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig7-timo}{}%
 \includegraphics[width=.9\textwidth]{images/drt_mileage_edit.png}
 \captionsetup{width=.9\textwidth}
 \caption{DRT introduction: Impact on private motorized and public transport mileage.}
@@ -752,6 +763,7 @@ These findings highlight the importance of optimizing DRT operations to maximize
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig9-timo}{}%
 \includegraphics[width=0.9\textwidth]{images/drt_occupancy_grid_edit.png}
 \captionsetup{width=.9\textwidth}
 \caption{DRT introduction: Occupancy profiles of DRT vehicles.}
@@ -767,6 +779,7 @@ This significant improvement in the CBD underscores the potential of DRT to alle
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig10-timo}{}%
 \includegraphics[width=0.9\textwidth]{images/median_scenario_congestion_map_edit_3.png}
 \captionsetup{width=.9\textwidth}
 \caption{Median DRT scenario: Absolute and relative change in congestion. The bold areas mark the DRT service area constructed.}
@@ -788,6 +801,7 @@ Similar mixed results on travel times have been reported by \citep{reck2020share
 
 \begin{figure}[H]
 \centering
+\hypertarget{todo:fig11-timo}{}%
 \includegraphics[width=0.9\textwidth]{images/median_scenario_pt_car_travel_time_change_edit.pdf}
 \captionsetup{width=.9\textwidth}
 \caption{Median DRT scenario: Median travel time for car and public transport before and after DRT introduction.}
