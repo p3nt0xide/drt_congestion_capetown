@@ -64,6 +64,7 @@
 \newcommand{\timo}[1]{\todo[inline, color=orange!30]{\textbf{Timo:} #1\todobacklink}}
 \newcommand{\leif}[1]{\todo[inline, color=yellow!40]{\textbf{Leif:} #1\todobacklink}}
 \newcommand{\aitodo}[1]{\todo[inline, color=red!40]{\textbf{AI TODO:} #1\todobacklink}}
+\newcommand{\yanetsi}[1]{\todo[inline, color=purple!40]{\textbf{Yanetsi:} #1\todobacklink}}
 \newcommand{\RevieweroneRTBM}[1]{\todo[inline, color=green!40]{\textbf{Revier1RTBM:} #1\todobacklink}}
 \newcommand{\alex}[1]{\todo[inline, color=blue!40]{\textbf{Alex:} #1\todobacklink}}
 
@@ -281,7 +282,7 @@ Demand-responsive transport (DRT) emerges as a promising sustainable alternative
 While the potential risks, like public transport cannibalization, are widely debated, their practical implications in the context of the Global South are under-researched.
 To address this gap, we simulate the operation of a hypothetical large-scale shareable DRT service in Cape Town using an Agent-Based Transport Simulation (MATSim).
 By employing relative fleet sizing and pricing schemes this study establishes a scalable baseline that is independent of site-specific absolute values, facilitating direct transferability to other regions worldwide.
-\hypertarget{todo:abstract-transfer1}{}\timo{Abstract --- Transferability Claims: Statements like ``\dots facilitating direct transferability to other regions worldwide'' are dangerous. Remove or attenuate them.}
+\hypertarget{todo:abstract-transfer1}{}\timo{Abstract --- Transferability Claims: Statements like ``\dots facilitating direct transferability to other regions worldwide'' are dangerous. Remove or attenuate them.} \yanetsi{'Transferability is to big of a word'}
 Our findings show that DRT can reduce citywide congestion by up to 28.2\,\% (up to 50\,\% in buffer areas), demonstrating its potential to alleviate traffic bottlenecks.
 Critically, it facilitated multi-modal trips, increasing overall public transport usage without significant cannibalization.
 Effectiveness was maximized by competitive pricing and larger fleets, with shared rides (between 25\,\% and 40\,\% of DRT trips) mitigating dead mileage.
@@ -366,6 +367,13 @@ We then present simulation results, followed by a discussion of the policy impli
 %% ============================================================================
 \hypertarget{todo:lit-split}{}\hypertarget{todo:lit-rev1}{}\hypertarget{todo:lit-rev2}{}\hypertarget{todo:lit-rev3}{}\section*{Traffic congestion in Cape Town and the alleviation potential of DRT}
 \alex{split up: 1) Situation in Cape Town, 2) Concept of Congestion and why congestion arises and how to measure it? 3) Drt as promising alternative or curse due to PT cannibalization? }
+\yanetsi{Explain gap between literature and this study}
+\yanetsi{Explain concept of DRT and congestion?}
+\yanetsi{Rewrite the literature review around DRT simulation studies (Berlin, Hamburg (MOIA, Jerusalem, Rouen, Singapore, Munich, Vienna): what each did and what it lacks}
+\yanetsi{Say why agent-based simulation suits the question}
+\yanetsi{State the contributions explicitly}
+\yanetsi{Shorten the introduction to problem → DRT → gap → this paper; define DRT once}
+\yanetsi{shrink side topics (apartheid, land use, Vickrey)}
 \timo{Reviewer Comment 1 (Literature Context): Improve classification of the study in the wider literature context. Emphasize that this simulation (and simulations in general) are valuable contributions to resolving current issues.}
 \timo{Reviewer Comment 2 (Mode Cannibalization): Elaborate more on mode cannibalization (appears to be a key concern for the referee).}
 \timo{Reviewer Comment 3 (Congestion \& Cannibalization Interplay): Elaborate on congestion, the phenomenon of public transport cannibalization, and how these two phenomena are intertwined.}
@@ -429,6 +437,7 @@ Design of DRT could be incorporated or complement future transit system redesign
   \node[draw, fill=white, rounded corners, align=center, inner sep=3pt] at (0,0) {\textbf{DRT}\\[-1pt]\footnotesize e.g.\ MOIA};
 \end{tikzpicture}
 \captionsetup{width=.9\textwidth}
+\alex{replace figure}
 \caption{TO BE REPLACED, PLACEHOLDER: Conceptual positioning of DRT at the intersection of public transport, paratransit, and shared mobility (based on \citealp{butler2020smart}).}
 \label{fig:drt_classification}
 \end{figure}
@@ -463,9 +472,10 @@ Others \cite{Basu.2018} find that ride-pooling services serve as a complement to
 On the contrary, it has been highlighted that introducing on-demand services comes with the potential threat of public transport cannibalized by shared DRT \cite{Oh.2020}.
 Simulations for Jerusalem \cite{BenDor.2022}, Berlin \cite{Kaddoura.2020} and the Rouen Normandie metropolitan area \cite{Vosooghi.2019} also indicate that cannibalization of the existing public transport sector by DRT must be avoided.
 Therefore, the introduction of 'push factors'—measures that make private car use less attractive (e.g., higher parking fees or congestion tolls)—might be necessary.
-As presented in this literature overview, there are many studies on DRT simulations and outcomes, but none focus on congestion and in particular not in the context of the Global South.
+As presented in this literature overview, there are many studies on DRT simulations and outcomes, but none focus on congestion and in particular not in the context of the Global South. \yanetsi{Add a small comparison table: study · city · model · congestion? · cannibalization? · Global South?}
 This study attempts to fill this research gap.\hypertarget{todo:lit-gap-weak}{}\leif{Not clear/strong enough.}\hypertarget{todo:lit-sim-subsec}{}\leif{I think I see the reviewer's point. For a simulation paper, there is basically no critical reflection of simulation papers. I would add an entire subsection of simulation studies that debate the status quo in literature in agent-based modelling etc.}
-
+\yanetsi{State hypotheses for both congestion and cannibalization}
+\yanetsi{One paragraph of theory: what cannibalization is, when it is likely (short trips, low DRT fares, poor PT), and the opposite effect (DRT as feeder)}
 %A research theme losely related to DRT is Mobility-as-a-Service (MaaS). The idea behind MaaS is to have integrated transport offerings within city or regional systems \citealp{Loubser} Such motivation-based policies offer higher efficiency and lower emissions \citep{maggi2021price}. DRT is often seen as playing a key role in MaaS. Since the simulation in this work will primarily have time and price-based switching, it can be interpreted as a lower bound of modal switching without preference influencing policy or marketing being implemented to increase the switching.
 
 
@@ -474,7 +484,7 @@ This study attempts to fill this research gap.\hypertarget{todo:lit-gap-weak}{}\
 %% ============================================================================
 \hypertarget{todo:method-concepts}{}\section*{Method}
 \leif{According to the second reviewer comment, I would try to include a new section trying to explain the transport economics/science concepts, such as cannibalization etc.}
-
+\yanetsi{Add a short bias table to the Method}
 To analyze the effects of significant changes to mobility services, we compare the status quo with a hypothetical case that introduces a large fleet of shared demand-responsive vehicles that Cape Town's population may use.
 Taking advantage of ABM simulations, we are able to deal well with complexity and individual decisions, which gives confidence in the predicted change in congestion we investigate \citep{ronald2015simulating}.
 For this, we fall back to the open source framework MATSim that allows traffic system modeling via ABM.
@@ -486,7 +496,7 @@ The number of cities with MATsim modeling frameworks and applications has been i
 The upcoming section presents a general overview of MATSim and parameters used in this paper, followed by a description of the Cape Town scenario setup and an overview of the shared mobility scenarios applied.
 
 \subsection*{MATSim framework and scenario parameters}
-
+\yanetsi{Explain more of how DRT is modelled?}
 MATSim represents travellers in the real world as artificial agents with corresponding socio-demographic attributes and aims to mimic real-world travel patterns through an co-evolutionary algorithm \citep{nnene2023simulation}.
 The framework simulates daily activity and mobility patterns of all agents and takes into account mode choice, departure time and route choice.
 Movement patterns of road vehicles are simulated on a network graph, which represents local infrastructure and carries attributes such as maximum free speed or road capacity.
@@ -540,6 +550,7 @@ Car              & 0 & $-10$  & 0 & $-11$ & 0 \\
 DRT              & 0 & varying & 0 & varying & 0 \\
 \bottomrule
 \end{tabularx}
+
 \end{table}
 
 It becomes evident that, under this modeling setup, travel time using a particular mode does not directly impact an agent's (dis)utility while traveling.
@@ -550,9 +561,12 @@ The simulation outcomes should therefore be interpreted as the potential congest
 \hypertarget{todo:method-intermodal}{}\alex{Reviewer critic Cannibalization modelling: Make it clear that agents can or cannot perform intermodal mobility trips (i.e. different mode legs during a trip) }
 
 \hypertarget{todo:method-drt-mech}{}\alex{new subsection? Explain MATSIM-internal DRT mechanism}
+\yanetsi{Cannibalization: Say which model parts capture it: mode choice, prices in Eq. 2, PT times from GTFS, whether DRT+PT trips are possible}
+
 
 \hypertarget{todo:method-rev4-data}{}\subsection*{Baseline Cape Town MATSim scenario and calibration}
 \timo{Reviewer Comment 4 (Reduce Study Biases): Use more current / overlapping data. Try to ``update'' the whole study.}
+\yanetsi{Data from 2011, 2013, 2018, 2022: list the years and discuss}
 
 A synthetic scenario of Cape Town with a population sample size of 10\,\% is employed for the study.
 We derive the synthetic population from South African Census Data 2011 \citep{census2011}, the 10\,\% Public Use Sample \citep{census2011public10pct} and the Minnesota Population Center Integrated Public Use Microdata Series \citep{mpc2020}.
@@ -588,7 +602,8 @@ This goes to show that the model is fit well against major mobility patterns, in
   \leif{Fig. 1: Since the points are the more significant point of including this figure, they should be more visible.}
 \end{figure}
 
-For our chosen measure of traffic congestion, the difference between the free flow speed and the actual simulation flow speed is aggregated for each street link on a daily basis.
+\yanetsi{TomTom data over-represents drivers with navigation apps: discuss, compare with travel-survey flows}
+For our chosen measure of traffic congestion, the difference between the free flow speed and the actual simulation flow speed is aggregated for each street link on a daily basis. \alex{look for alternative measurements of congestion?}
 As noted earlier, since scheduled transport operates on artificial links that have no intersections with links corresponding to the real world, we account only for congestion caused by cars and minibus taxis, which make up the vast majority of traffic on Cape Town's streets.
 
 \begin{figure}[H]
@@ -600,16 +615,20 @@ As noted earlier, since scheduled transport operates on artificial links that ha
   \label{fig:x_2}
   \timo{Fig. 2: Recreate the figure using the mean of all counting stations, and include standard deviation as error bars for each hourly bar.}
   \leif{Fig. 2: More info on this figure. Are those averages? Is it weekdays? Can we come up with a figure of ``accuracy'' instead of just showing a bar plot?}
+  \aitodo{do a sample plot with confidence intervalls, stick to appearance of existing plot}
 \end{figure}
 
 \subsection*{DRT scenarios and parameterization}
+\yanetsi{vehicle capacity, max waiting time, max travel time α/β, operating hours; rest at defaults?}
+\yanetsi{Limit who can book DRT (e.g. income, age, smartphone ownership) and state the rule}
+\yanetsi{One paragraph on booking and information: what the model assumes (perfect information, instant booking) and what it ignores (digital access, trust, safety)}
 
 The main objective of this study is to analyze whether introduction of a large-scale DRT fleet is able to reduce congestion by encouraging a modal shift from private cars to DRT while prevent public transport cannibalization by the new introduced mode.
-To achieve this, we design a service area where agents who begin or end their trips within the designated area have the option to switch to DRT.
+To achieve this, we design a service area where agents who begin or end their trips within the designated area have the option to switch to DRT.\yanetsi{Introduce counterfactual service areas to prevent fishing-for-results-bias}
 Other service type options like the introduction of a stop-based DRT system are not considered because they would resemble the existing paratransit systems to a large extent.
 In our service-area based approach, agents can ride-hail DRT vehicles when the start and end of their trip falls within the defined service area.
 \absatz
-We design the DRT service area using a two-step process.
+We design the DRT service area using a two-step process. \yanetsi{state 1000m buffer zone}
 First, we identify wards with the highest car trip activity.
 Second, we combine these with wards that have a high concentration of upper-middle-income households to create a final service area that captures a large share of car trips while targeting users who are more likely to afford and use the service.
 \absatz
@@ -678,6 +697,7 @@ In total, we evaluate 60 different scenarios based on all value combinations of 
 0.5\,\%, 1.0\,\%, 1.5\,\%, 2.0\,\% & 200\,\%, 250\,\%, 300\,\% & 45.45\,\%, 55.55\,\%, 65.65\,\%, 75\,\%, 100\,\% \\
 \bottomrule
 \end{tabularx}
+\yanetsi{Check the median scenario's km fee: 59.1\% is not in the Table 2 grid}
 \end{table}
 
 The pricing assumptions were selected to reflect realistic affordability thresholds for upper-middle-income households in Cape Town, who are more likely to adopt DRT as a viable alternative to private cars or existing ride-hailing services.
@@ -685,14 +705,15 @@ The daily fee levels were chosen as they represent a midpoint between low-cost p
 For instance, a 200\,\% daily fee aligns with real-world pricing in similar contexts, such as Hamburg's MOIA service, where fares are approximately 2–3 times public transport rates to encourage uptake among affluent users \citep{KagerbauerKostorzWilkes2021_1000141282}.
 The variable distance rates (45.45\,\% to 100\,\% of car km fees) enable further sensitivity analysis, specifically designed to test DRT's competitiveness below the full variable costs of cars.
 By setting rates as low as 45.45\,\% (e.g., equivalent to a subsidized or efficiency-optimized fare), we capture scenarios where DRT incentivizes shifts from private cars—whose variable costs include fuel and maintenance—while remaining attractive relative to ride-hailing services like Uber or Bolt, which often charge 80–120\,\% of car km equivalents due to unshared rides and surge pricing \citep{Tirachini2020-sr}).
-Higher rates (up to 100\,\% of the variable car price) simulate less subsidized operations, revealing potential thresholds where adoption drops and congestion relief diminishes.
+Higher rates (up to 100\,\% of the variable car price) simulate less subsidized operations, revealing potential thresholds where adoption drops and congestion relief diminishes. \yanetsi{How does the DRT dispatching inside Matsim work?} \yanetsi{Explain the concept of waiting time and potential pre-booking in the simulation}
 
 
 %% ============================================================================
 %% RESULTS
 %% ============================================================================
 \section*{Results}
-
+\yanetsi{Say whether DRT vehicles count in the congestion measure}
+\yanetsi{Define cannibalization measures (DRT riders who came from PT; net change in PT trips and km) and report them for every scenario}
 The introduction of DRT across 60 scenarios consistently reduced aggregate daily congestion compared to the baseline scenario, where additional travel time incurred from delays constitutes the majority of total travel time.
 This aligns with findings by \cite{schluter2021impact}, who demonstrated significant reductions in congestion on rural-urban corridors through DRT implementations.
 Figure \ref{fig:x_6} illustrates the impact of DRT introduction on car use (measured by total cars on the road) and total congestion.
@@ -713,10 +734,11 @@ By optimizing routes, reducing stop-and-go traffic patterns, and potentially inc
 \caption{DRT introduction: Impact on car use and congestion.}
 \label{fig:x_6}
 \timo{Fig. 5 (and Fig. 7): Clarify the y-axis: change in what metric?}
+\yanetsi{Figures to repetitive}
 \end{figure}
 
 Figure \ref{fig:x_10} shows the composition of change in congestion in different geographical areas in Cape Town.
-The buffer area, which likely serves as a transition zone between the DRT service area and outer regions, experiences the largest reduction, with congestion levels decreasing up to about 50\,\% in the most beneficial scenarios.
+The buffer area, which likely serves as a transition zone between the DRT service area and outer regions, experiences the largest reduction, with congestion levels decreasing up to about 50\,\% in the most beneficial scenarios.\yanetsi{remove 'transition zone'}
 This pronounced effect may be due to DRT alleviating traffic bottlenecks at the periphery of the service area, where vehicles often converge or disperse.
 In contrast, within the service area, congestion increases in the most expensive DRT scenarios, possibly because high prices deter adoption, leading to underutilization of DRT and a reliance on less efficient modes.
 However, this local increase is offset by reductions in other areas, resulting in overall congestion relief.
@@ -748,6 +770,7 @@ Nevertheless, as observed in Figure \ref{fig:x_6}, congestion still decreases, s
 \caption{DRT introduction: Impact on private motorized and public transport mileage.}
 \label{fig:x_8}
 \timo{Fig. 7 (and Fig. 5): Clarify the y-axis: change in what metric? Also: Why does car mileage go back up between 1.0 and 1.5?}
+\yanetsi{Explain the PT → car switches in Fig. 8 (about 5–18\%), never mentioned in the text}
 \end{figure}
 
 The introduction of DRT also prompted notable shifts in mode choice.
@@ -832,7 +855,7 @@ Similar mixed results on travel times have been reported by \citep{reck2020share
 %% DISCUSSION
 %% ============================================================================
 \section*{Discussion}
-
+\yanetsi{Discussion should explain the results, not repeat them; add a Conclusion}
 Our simulation study demonstrates that introducing DRT in Cape Town can effectively reduce traffic congestion, with the extent of relief depending on fleet size and pricing strategies.
 Across 60 scenarios, DRT consistently decreased congestion, with the most effective configurations achieving up to 28.2\,\% citywide reductions.
 Notably, DRT not only reduced the number of private cars on the road but also improved traffic flow efficiency, as evidenced by congestion reductions often exceeding the decrease in vehicle numbers.
@@ -869,6 +892,25 @@ Such research, alongside effective strategies to reduce sharing anxiety—for ex
 Future research should also explore the integration of DRT with existing public transport systems, the optimization of fleet operations to minimize dead mileage, and the potential of electric DRT vehicles to enhance environmental outcomes.
 Additionally, policy incentives may be necessary to encourage DRT adoption, particularly in scenarios where DRT travel times exceed those of private cars, such as DRT-designated driving lanes or discounted or free parking for DRT vehicles at transport hubs.
 
+\section*{Appendix}
+\yanetsi{Convergence plot in the appendix; link to code and configuration}
+
+\section{Sensitivty Analysis}
+\yanetsi{Sensitivity runs with a penalty for DRT (sharing anxiety) and for waiting, at least around the median scenario}
+\yanetsi{Suggestion: Multiple Seeds for median run}
+\yanetsi{10\% sample with scaled capacities: discuss (optionally check at a larger sample)}
+\yanetsi{Data from 2011, 2013, 2018, 2022: list the years and discuss}
+\yanetsi{Fixed demand (no induced trips), scoring parameters from Berlin, no Uber/Bolt: state as limitations}
+\aitodo{add a todo alex tag for every "significant" only where a test backs it}
+\aitodo{Fix if still persistent: Typos ("Dicussion", "attractice", "theses", "sociodemopgrahic", "excercise", "Capetown"); repeated sentence in the mode-switch paragraph; broken parenthesis "( it"; citation style; citations that don't support their claims (Wang 2019, König 2018, Kaddoura 2020a, Miskolczi 2021); reference errors (travel survey year, development plan link)}
+
+\aitodo{the following is a table of Yanetsi I cannot get my head around. create a table before result section and explain in detail to me what is meant by all her remarks. This is her text: 'Explanations that contradict the model. The numbers are fine; the explanations are not.
+Paper's explanation;	Why the model can't produce it;	Fix	Work;
+Road congestion speeds up or delays buses (Fig. 11);	Buses and trains run on a separate pseudo-network; Explain via minibus taxis, crowding, mix of trips;	writing;
+Less stop-and-go, better routes;	Queue model has no stop-and-go; DRT routes like cars	Queues are nonlinear: small cut in cars, large cut in delay;	writing;
+Congestion rises at high prices because DRT is underused;	Non-use gives baseline traffic, not more; Empty DRT vehicles + PT → car switches;	output;
+More km but less congestion due to occupancy;	Queues count vehicles, not passengers:	Extra km driven off-peak or on roads with spare capacity	;output'
+}
 
 %\subfile{conclusion}
 %\begin{figure}[h]
