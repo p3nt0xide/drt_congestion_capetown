@@ -857,8 +857,33 @@ Congestion rises at high prices because DRT is underused & Non-use gives baselin
 More km but less congestion due to occupancy & Queues count vehicles, not passengers & Extra km driven off-peak or on roads with spare capacity & Output \\
 \bottomrule
 \end{tabularx}
-\aitodo{Elaborate more on these points and explain the meaning behind all these points}
 \end{table}
+
+\begingroup
+\footnotesize
+\setlength{\parskip}{2pt}
+\noindent\textbf{Detailed Notes on Table~\ref{tab:yanetsi_model_contradictions} (Core message: the simulation numbers are valid, but four textual explanations contradict MATSim's internal mechanics):}
+\begin{enumerate}\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}\setlength{\parsep}{0pt}
+  \item \textbf{Road congestion speeds up or delays buses (Fig.~\ref{fig:x_12}) --- \textit{Fix: Writing}.}
+    In the Method section, scheduled formal public transport (GABS, MyCiTi, Metrorail, UCT shuttles) is modeled on a separate \emph{pseudo-network} with direct aerial links and fixed timetable speeds.
+    Because formal buses do not share physical road links with cars in MATSim, road congestion cannot speed them up or slow them down.
+    Only \emph{minibus taxis} run on the OSM road network and actually experience road congestion relief.
+    Meanwhile, higher median PT travel times inside service areas must be explained by: (a)~vehicle capacity crowding/longer wait times when demand increases, and/or (b)~a \emph{trip-mix (composition) effect} (if shorter PT trips shift to DRT or longer former car trips shift to PT, the median PT trip duration increases even without slower buses).
+  \item \textbf{Less stop-and-go and better routes --- \textit{Fix: Writing}.}
+    MATSim uses a mesoscopic FIFO queue model without microscopic acceleration, braking, or stop-and-go dynamics, and DRT vehicles use the same travel-time-based road routing as private cars (typically taking \emph{longer} detours for pickups/drop-offs rather than ``better'' routes).
+    The true model-consistent reason why relative congestion drops more strongly than vehicle counts is the \emph{nonlinearity of traffic queues} (bottleneck effect): when links operate near saturation, even a modest reduction in peak-hour vehicles clears queues disproportionately and produces a much larger percentage drop in total delay.
+  \item \textbf{Congestion rises at high prices because DRT is underused --- \textit{Fix: Check simulation output}.}
+    Simple ``underutilization'' of DRT cannot explain congestion \emph{exceeding} the baseline: if nobody uses DRT, traffic simply remains at the baseline level (0\,\% change), not higher.
+    For congestion inside the service area to rise above the baseline in expensive scenarios, more vehicles must enter congested links.
+    Check the MATSim outputs of those scenarios for two actual model mechanisms: (a)~empty DRT vehicle movements (pickup/rebalancing dead mileage added on top of baseline cars), and (b)~modal shifts from PT to private cars (or route-equilibrium shifts pushing cars onto service-area links).
+  \item \textbf{More vehicle-km yet less congestion due to higher occupancy --- \textit{Fix: Check simulation output}.}
+    MATSim's FIFO link queues count \emph{vehicles}, not passengers: one DRT vehicle carrying three passengers consumes the exact same link storage and flow capacity as a single-occupancy car.
+    Higher occupancy explains how DRT can reduce total vehicle-km, but once total motorized vehicle-km \emph{increases}, occupancy alone cannot explain why congestion falls.
+    Check the MATSim outputs split by time of day and link utilization: the model-consistent explanation is that the additional DRT vehicle-km occur predominantly \emph{off-peak} or on \emph{uncongested links with spare capacity}, while private car vehicle-km are removed from \emph{peak-hour bottlenecks}.
+\end{enumerate}
+\hrule
+\vspace{6pt}
+\endgroup
 \fi
 
 %% ============================================================================
